@@ -765,7 +765,7 @@
                         
                         <button class="relative p-2.5 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300">
                             <i class="fas fa-bell"></i>
-                            <span class="notification-badge">3</span>
+                            <span class="notification-badge">0</span>
                         </button>
                         
                         <button class="md:hidden p-2.5 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300" id="mobile-menu-toggle">
@@ -773,7 +773,7 @@
                         </button>
                         
                         <div class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-blue-700 dark:text-blue-300 font-medium hidden md:flex">
-                            KJ
+                            HR
                         </div>
                     </div>
                 </div>
@@ -790,7 +790,7 @@
                     </div>
                     <div>
                         <div class="text-gray-500 dark:text-gray-400 text-sm">Applicants</div>
-                        <div class="text-2xl font-bold text-gray-900 dark:text-white">12</div>
+                        <div class="text-2xl font-bold text-gray-900 dark:text-white">0</div>
                     </div>
                 </div>
                 
@@ -800,7 +800,7 @@
                     </div>
                     <div>
                         <div class="text-gray-500 dark:text-gray-400 text-sm">Staffs</div>
-                        <div class="text-2xl font-bold text-gray-900 dark:text-white">245</div>
+                        <div class="text-2xl font-bold text-gray-900 dark:text-white">0</div>
                     </div>
                 </div>
                 
@@ -810,7 +810,7 @@
                     </div>
                     <div>
                         <div class="text-gray-500 dark:text-gray-400 text-sm">Active Employees</div>
-                        <div class="text-2xl font-bold text-gray-900 dark:text-white">237</div>
+                        <div class="text-2xl font-bold text-gray-900 dark:text-white">0</div>
                     </div>
                 </div>
                 
@@ -820,7 +820,7 @@
                     </div>
                     <div>
                         <div class="text-gray-500 dark:text-gray-400 text-sm">Overall Progress</div>
-                        <div class="text-2xl font-bold text-gray-900 dark:text-white">72%</div>
+                        <div class="text-2xl font-bold text-gray-900 dark:text-white">0%</div>
                     </div>
                 </div>
             </div>
@@ -874,16 +874,16 @@
                                 <div class="mb-3">
                                     <div class="flex justify-between text-sm mb-1">
                                         <span class="text-gray-600 dark:text-gray-300">Updated Profiles</span>
-                                        <span class="text-blue-theme font-medium">94%</span>
+                                        <span class="text-blue-theme font-medium">0%</span>
                                     </div>
                                     <div class="course-progress">
-                                        <div class="course-progress-fill" style="width: 94%"></div>
+                                        <div class="course-progress-fill" style="width: 0%"></div>
                                     </div>
                                 </div>
                                 
                                 <div class="flex justify-between text-xs text-gray-500 dark:text-gray-400 mb-4">
-                                    <span>245 Active</span>
-                                    <span>8 Pending</span>
+                                    <span>0 Active</span>
+                                    <span>0 Pending</span>
                                 </div>
                                 
                                 <!-- Added Button for Employee Records -->
@@ -908,16 +908,16 @@
                                 <div class="mb-3">
                                     <div class="flex justify-between text-sm mb-1">
                                         <span class="text-gray-600 dark:text-gray-300">Completion Rate</span>
-                                        <span class="text-blue-theme font-medium">78%</span>
+                                        <span class="text-blue-theme font-medium">0%</span>
                                     </div>
                                     <div class="course-progress">
-                                        <div class="course-progress-fill" style="width: 78%"></div>
+                                        <div class="course-progress-fill" style="width: 0%"></div>
                                     </div>
                                 </div>
                                 
                                 <div class="flex justify-between text-xs text-gray-500 dark:text-gray-400 mb-4">
-                                    <span>12 Applications</span>
-                                    <span>5 Pending</span>
+                                    <span>0 Applications</span>
+                                    <span>0 Pending</span>
                                 </div>
                                 
                                 <!-- Added Button for Application Management -->
@@ -952,11 +952,11 @@
                             </p>
                             
                             <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5 mt-5">
-                                <div class="bg-blue-theme h-2.5 rounded-full" style="width: 88%"></div>
+                                <div class="bg-blue-theme h-2.5 rounded-full" style="width: 0%"></div>
                             </div>
                             <div class="w-full flex justify-between text-sm text-gray-500 dark:text-gray-400 mt-2">
                                 <span>Database Completion</span>
-                                <span class="text-gray-900 dark:text-white font-medium">88%</span>
+                                <span class="text-gray-900 dark:text-white font-medium">0%</span>
                             </div>
                             
                             <a href="#" class="w-full mt-5">
@@ -975,44 +975,7 @@
                         </div>
                         
                         <div class="space-y-4">
-                            <div class="flex items-center justify-between p-3 rounded-xl bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600">
-                                <div class="flex items-center">
-                                    <div class="w-10 h-10 rounded-lg bg-red-100 dark:bg-red-900 flex items-center justify-center mr-3">
-                                        <i class="fas fa-money-check-alt text-red-600 dark:text-red-300"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-medium text-gray-900 dark:text-white">PAYROLL PROCESSING</h4>
-                                        <p class="text-gray-500 dark:text-gray-400 text-xs">Monthly Salary Run</p>
-                                    </div>
-                                </div>
-                                <span class="text-gray-500 dark:text-gray-400 text-sm font-medium">Sep 25</span>
-                            </div>
-                            
-                            <div class="flex items-center justify-between p-3 rounded-xl bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600">
-                                <div class="flex items-center">
-                                    <div class="w-10 h-10 rounded-lg bg-yellow-100 dark:bg-yellow-900 flex items-center justify-center mr-3">
-                                        <i class="fas fa-chart-bar text-yellow-600 dark:text-yellow-300"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-medium text-gray-900 dark:text-white">PERFORMANCE REVIEWS</h4>
-                                        <p class="text-gray-500 dark:text-gray-400 text-xs">Q3 Evaluations</p>
-                                    </div>
-                                </div>
-                                <span class="text-gray-500 dark:text-gray-400 text-sm font-medium">Sep 30</span>
-                            </div>
-                            
-                            <div class="flex items-center justify-between p-3 rounded-xl bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600">
-                                <div class="flex items-center">
-                                    <div class="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900 flex items-center justify-center mr-3">
-                                        <i class="fas fa-file-medical text-blue-600 dark:text-blue-300"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-medium text-gray-900 dark:text-white">BENEFITS RENEWAL</h4>
-                                        <p class="text-gray-500 dark:text-gray-400 text-xs">Health Insurance</p>
-                                    </div>
-                                </div>
-                                <span class="text-gray-500 dark:text-gray-400 text-sm font-medium">Oct 5</span>
-                            </div>
+                            <!-- HR deadlines will be populated from backend -->
                         </div>
                     </div>
                 </div>
@@ -1028,53 +991,7 @@
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 instructors-grid">
-                    <div class="card p-5 flex flex-col items-center text-center content-fade-in stagger-delay-1">
-                        <div class="rounded-full w-16 h-16 bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-blue-600 dark:text-blue-300 text-xl font-bold mb-4">
-                            SD
-                        </div>
-                        <h4 class="font-bold text-gray-900 dark:text-white">Sarah Dela Cruz</h4>
-                        <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">HR Director</p>
-                        <div class="mt-3 flex items-center text-xs">
-                            <span class="status-indicator status-online mr-2"></span>
-                            <span class="text-green-600 dark:text-green-400 font-medium">Available</span>
-                        </div>
-                    </div>
-                    
-                    <div class="card p-5 flex flex-col items-center text-center content-fade-in stagger-delay-2">
-                        <div class="rounded-full w-16 h-16 bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-blue-600 dark:text-blue-300 text-xl font-bold mb-4">
-                            MP
-                        </div>
-                        <h4 class="font-bold text-gray-900 dark:text-white">Michael Perez</h4>
-                        <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Recruitment Manager</p>
-                        <div class="mt-3 flex items-center text-xs">
-                            <span class="status-indicator status-offline mr-2"></span>
-                            <span class="text-gray-500 dark:text-gray-400 font-medium">In Meeting</span>
-                        </div>
-                    </div>
-                    
-                    <div class="card p-5 flex flex-col items-center text-center content-fade-in stagger-delay-3">
-                        <div class="rounded-full w-16 h-16 bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-blue-600 dark:text-blue-300 text-xl font-bold mb-4">
-                            AG
-                        </div>
-                        <h4 class="font-bold text-gray-900 dark:text-white">Anna Gomez</h4>
-                        <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Payroll Specialist</p>
-                        <div class="mt-3 flex items-center text-xs">
-                            <span class="status-indicator status-online mr-2"></span>
-                            <span class="text-green-600 dark:text-green-400 font-medium">Available</span>
-                        </div>
-                    </div>
-                    
-                    <div class="card p-5 flex flex-col items-center text-center content-fade-in stagger-delay-4">
-                        <div class="rounded-full w-16 h-16 bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-blue-600 dark:text-blue-300 text-xl font-bold mb-4">
-                            RS
-                        </div>
-                        <h4 class="font-bold text-gray-900 dark:text-white">Robert Santos</h4>
-                        <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Benefits Administrator</p>
-                        <div class="mt-3 flex items-center text-xs">
-                            <span class="status-indicator status-offline mr-2"></span>
-                            <span class="text-gray-500 dark:text-gray-400 font-medium">On Leave</span>
-                        </div>
-                    </div>
+                    <!-- HR team members will be populated from backend -->
                 </div>
             </div>
         </main>

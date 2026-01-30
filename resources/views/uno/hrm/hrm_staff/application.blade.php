@@ -876,6 +876,32 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css">
+<style>
+    #calendar {
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .fc-day-today {
+        background-color: rgba(59, 130, 246, 0.1) !important;
+    }
+    
+    .fc-event {
+        cursor: pointer;
+    }
+    
+    .fc-event-interview {
+        background-color: #4f46e5;
+        border-color: #4f46e5;
+    }
+    
+    .fc-event-interview:hover {
+        background-color: #4338ca;
+        border-color: #4338ca;
+    }
+</style>
 </head>
 
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
@@ -1146,7 +1172,7 @@
                                                     @method('PATCH')
                                                     <input type="hidden" name="status" value="interview_scheduled">
                                                     <button type="submit" class="btn btn-success btn-sm"
-                                                        onclick="return confirm('Schedule interview for {{ $applicant->first_name }} {{ $applicant->last_name }}?')">
+                                                        {{-- onclick="return confirm('Schedule interview for {{ $applicant->first_name }} {{ $applicant->last_name }}?')"--}}> 
                                                         <i class="fas fa-calendar-alt mr-1"></i> Schedule
                                                     </button>
                                                 </form>
@@ -1157,7 +1183,8 @@
                                                     @method('PATCH')
                                                     <input type="hidden" name="status" value="rejected">
                                                     <button type="submit" class="btn btn-danger btn-sm"
-                                                        onclick="return confirm('Reject {{ $applicant->first_name }} {{ $applicant->last_name }}?')">
+                                                        {{-- onclick="return confirm('Reject {{ $applicant->first_name }} {{ $applicant->last_name }}?')" --}}
+                                                        >
                                                         <i class="fas fa-times mr-1"></i> Reject
                                                     </button>
                                                 </form>
@@ -1179,7 +1206,8 @@
                                                     @method('PATCH')
                                                     <input type="hidden" name="status" value="hired">
                                                     <button type="submit" class="btn btn-success btn-sm"
-                                                        onclick="return confirm('Hire {{ $applicant->first_name }} {{ $applicant->last_name }}?')">
+                                                        {{-- onclick="return confirm('Hire {{ $applicant->first_name }} {{ $applicant->last_name }}?')" --}}
+                                                        >
                                                         <i class="fas fa-check mr-1"></i> Hire
                                                     </button>
                                                 </form>
@@ -1196,7 +1224,8 @@
                                                 </form>
                                             @elseif($status === 'hired')
                                                 <button class="btn btn-primary btn-sm"
-                                                    onclick="viewOfferLetter({{ $applicant->id }})">
+                                                    {{-- onclick="viewOfferLetter({{ $applicant->id }})" --}}
+                                                    >
                                                     <i class="fas fa-file-contract mr-1"></i> Offer Letter
                                                 </button>
                                             @elseif($status === 'interviewed')
@@ -1229,7 +1258,8 @@
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-outline btn-sm text-red-600"
-                                                    onclick="return confirm('Delete {{ $applicant->first_name }} {{ $applicant->last_name }}?')">
+                                                    {{-- onclick="return confirm('Delete {{ $applicant->first_name }} {{ $applicant->last_name }}?') "--}}
+                                                    >
                                                     <i class="fas fa-trash"></i>
                                                 </button>
                                             </form>
@@ -1244,7 +1274,76 @@
                                         <p class="text-sm mt-2">Start by adding new applicants</p>
                                     </td>
                                 </tr>
-                            @endforelse
+                        
+                            <!-- Calendar Modal -->
+                            <div id="calendarModal" class="modal fade" tabindex="-1" role="dialog">
+                                <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Schedule Interview</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div id="calendarContainer">
+                                                <div class="row">
+                                                    <div class="col-md-8">
+                                                        <div id="calendar" style="min-height: 400px;"></div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="card">
+                                                            <div class="card-body">
+                                                                <h6 class="card-title">Interview Details</h6>
+                                                                <form id="interviewForm">
+                                                                    <input type="hidden" id="applicantId" name="applicant_id">
+                                                                    <input type="hidden" id="selectedDate" name="interview_date">
+                                                                    
+                                                                    <div class="mb-3">
+                                                                        <label for="applicantName" class="form-label">Applicant</label>
+                                                                        <input type="text" class="form-control" id="applicantName" readonly>
+                                                                    </div>
+                                                                    
+                                                                    <div class="mb-3">
+                                                                        <label for="interviewTime" class="form-label">Time</label>
+                                                                        <input type="time" class="form-control" id="interviewTime" name="interview_time" required>
+                                                                    </div>
+                                                                    
+                                                                    <div class="mb-3">
+                                                                        <label for="interviewType" class="form-label">Interview Type</label>
+                                                                        <select class="form-control" id="interviewType" name="interview_type" required>
+                                                                            <option value="phone">Phone Interview</option>
+                                                                            <option value="video">Video Interview</option>
+                                                                            <option value="in_person">In-Person Interview</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    
+                                                                    <div class="mb-3">
+                                                                        <label for="interviewers" class="form-label">Interviewers (comma-separated)</label>
+                                                                        <input type="text" class="form-control" id="interviewers" name="interviewers" placeholder="e.g., John Doe, Jane Smith">
+                                                                    </div>
+                                                                    
+                                                                    <div class="mb-3">
+                                                                        <label for="notes" class="form-label">Notes</label>
+                                                                        <textarea class="form-control" id="notes" name="notes" rows="3"></textarea>
+                                                                    </div>
+                                                                    
+                                                                    <div class="d-grid">
+                                                                        <button type="submit" class="btn btn-primary">
+                                                                            <i class="fas fa-calendar-plus mr-1"></i> Schedule Interview
+                                                                        </button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                @endforelse
                         </tbody>
                     </table>
                 </div>

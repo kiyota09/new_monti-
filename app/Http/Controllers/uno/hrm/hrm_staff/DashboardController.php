@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Applicant;
 use App\Models\Employee; // Add this import
+use App\Http\Controllers\uno\hrm\ApplicantController;
 
 class DashboardController extends Controller
 {
@@ -90,12 +91,12 @@ class DashboardController extends Controller
     public function time()
     {
         // Fetch active employees for the dropdown
-        $employees = Employee::where('status', 'active')
-            ->orderBy('name')
-            ->get();
+        // $employees = Employee::where('status', 'active')
+        //     ->orderBy('name')
+        //     ->get();
         
-        // Pass employees to the view
-        return view('uno.hrm.hrm_staff.time', compact('employees'));
+        // // // Pass employees to the view
+        return view('uno.hrm.hrm_staff.time');
     }
 
     /**

@@ -14,7 +14,7 @@
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     @else
-        @include('uno.hrm.hrm_staff.style')
+         @include('uno.hrm.hrm_staff.style')
     @endif
 
     <!-- Custom styles -->
@@ -376,7 +376,7 @@
                         
                         <button class="relative p-2.5 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300">
                             <i class="fas fa-bell"></i>
-                            <span class="notification-badge">3</span>
+                            <span class="notification-badge">0</span>
                         </button>
                         
                         <button class="md:hidden p-2.5 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300" id="mobile-menu-toggle">
@@ -404,7 +404,7 @@
                 </div>
                 
                 <div class="flex justify-between items-center">
-                    <div class="text-lg font-semibold text-gray-900 dark:text-white">{{ now()->format('F d, Y') }}</div>
+                    <div class="text-lg font-semibold text-gray-900 dark:text-white" id="current-date">{{ now()->format('F d, Y') }}</div>
                     <div class="flex items-center space-x-4">
                         <button class="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg text-sm font-medium">
                             <i class="fas fa-sync-alt mr-2"></i>Sync Biometric Data
@@ -424,7 +424,7 @@
                     </div>
                     <div>
                         <div class="text-gray-500 dark:text-gray-400 text-sm">Total Employees</div>
-                        <div class="text-2xl font-bold text-gray-900 dark:text-white">230</div>
+                        <div class="text-2xl font-bold text-gray-900 dark:text-white" id="total-employees">0</div>
                     </div>
                 </div>
                 
@@ -434,7 +434,7 @@
                     </div>
                     <div>
                         <div class="text-gray-500 dark:text-gray-400 text-sm">Clocked In Today</div>
-                        <div class="text-2xl font-bold text-gray-900 dark:text-white">218</div>
+                        <div class="text-2xl font-bold text-gray-900 dark:text-white" id="clocked-in-today">0</div>
                     </div>
                 </div>
                 
@@ -444,7 +444,7 @@
                     </div>
                     <div>
                         <div class="text-gray-500 dark:text-gray-400 text-sm">Pending Time Out</div>
-                        <div class="text-2xl font-bold text-gray-900 dark:text-white">45</div>
+                        <div class="text-2xl font-bold text-gray-900 dark:text-white" id="pending-time-out">0</div>
                     </div>
                 </div>
                 
@@ -454,7 +454,7 @@
                     </div>
                     <div>
                         <div class="text-gray-500 dark:text-gray-400 text-sm">Late Arrivals</div>
-                        <div class="text-2xl font-bold text-gray-900 dark:text-white">8</div>
+                        <div class="text-2xl font-bold text-gray-900 dark:text-white" id="late-arrivals">0</div>
                     </div>
                 </div>
             </div>
@@ -466,10 +466,10 @@
                         <h3 class="text-xl font-bold text-gray-900 dark:text-white">Employee Time Records</h3>
                         <div class="flex items-center space-x-4">
                             <div class="relative">
-                                <input type="text" placeholder="Search employee..." class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 text-sm w-64 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <input type="text" id="employee-search" placeholder="Search employee..." class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 text-sm w-64 focus:outline-none focus:ring-2 focus:ring-blue-500">
                                 <i class="fas fa-search absolute right-3 top-3 text-gray-400"></i>
                             </div>
-                            <select class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <select id="status-filter" class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
                                 <option>All Status</option>
                                 <option>Present</option>
                                 <option>Absent</option>
@@ -494,256 +494,27 @@
                                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Actions</th>
                             </tr>
                         </thead>
-                        {{-- <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-                            <!-- Production Department -->
-                            <tr class="bg-blue-50/30 dark:bg-blue-900/20">
-                                <td colspan="8" class="px-6 py-3">
-                                    <div class="flex items-center">
-                                        <i class="fas fa-industry text-blue-600 dark:text-blue-400 mr-2"></i>
-                                        <span class="font-bold text-blue-700 dark:text-blue-300">Production Department</span>
-                                        <span class="ml-4 text-sm text-gray-500 dark:text-gray-400">(65 employees)</span>
-                                    </div>
+                        <tbody id="employee-time-records" class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+                            <!-- Employee data will be loaded here -->
+                            <tr id="no-data-row">
+                                <td colspan="8" class="px-6 py-8 text-center text-gray-500 dark:text-gray-400">
+                                    <i class="fas fa-clock text-4xl mb-4 text-gray-300 dark:text-gray-600"></i>
+                                    <p>No employee time records found</p>
+                                    <p class="text-sm mt-2">Select a date or department to view records</p>
                                 </td>
                             </tr>
-                            
-                            @php
-                                $productionEmployees = [
-                                    ['id' => 'EMP-2023-001', 'name' => 'John Dela Cruz', 'shift' => 'Morning (7AM-3PM)', 'time_in' => '06:58 AM', 'time_out' => '03:05 PM', 'status' => 'present', 'hours' => '8.1'],
-                                    ['id' => 'EMP-2023-002', 'name' => 'Maria Santos', 'shift' => 'Afternoon (3PM-11PM)', 'time_in' => '02:55 PM', 'time_out' => '--:--', 'status' => 'on-duty', 'hours' => '--'],
-                                    ['id' => 'EMP-2023-003', 'name' => 'Robert Garcia', 'shift' => 'Morning (7AM-3PM)', 'time_in' => '08:25 AM', 'time_out' => '03:10 PM', 'status' => 'late', 'hours' => '6.8'],
-                                    ['id' => 'EMP-2023-004', 'name' => 'Ana Perez', 'shift' => 'Morning (7AM-3PM)', 'time_in' => '--:--', 'time_out' => '--:--', 'status' => 'absent', 'hours' => '0'],
-                                ];
-                            @endphp
-                            
-                            @foreach($productionEmployees as $employee)
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="flex items-center">
-                                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-blue-600 dark:text-blue-300 font-medium">
-                                            {{ substr($employee['name'], 0, 2) }}
-                                        </div>
-                                        <div class="ml-4">
-                                            <div class="text-sm font-medium text-gray-900 dark:text-white">{{ $employee['name'] }}</div>
-                                            <div class="text-sm text-gray-500 dark:text-gray-400">{{ $employee['id'] }}</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="department-badge department-production">Production</span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">{{ $employee['shift'] }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium {{ $employee['time_in'] == '--:--' ? 'text-gray-400' : 'text-gray-900 dark:text-white' }}">
-                                    {{ $employee['time_in'] }}
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium {{ $employee['time_out'] == '--:--' ? 'text-gray-400' : 'text-gray-900 dark:text-white' }}">
-                                    {{ $employee['time_out'] }}
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    @if($employee['status'] == 'present')
-                                        <span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full status-present">Present</span>
-                                    @elseif($employee['status'] == 'absent')
-                                        <span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full status-absent">Absent</span>
-                                    @elseif($employee['status'] == 'late')
-                                        <span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full status-late">Late</span>
-                                    @elseif($employee['status'] == 'on-duty')
-                                        <span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full status-on-duty">On Duty</span>
-                                    @endif
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
-                                    {{ $employee['hours'] == '--' ? '--' : $employee['hours'] . ' hrs' }}
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                    @if($employee['time_out'] == '--:--' && $employee['time_in'] != '--:--')
-                                        <button class="time-out-btn time-btn mr-2" onclick="recordTimeOut('{{ $employee['id'] }}')">
-                                            <i class="fas fa-sign-out-alt mr-1"></i>Time Out
-                                        </button>
-                                    @elseif($employee['time_in'] == '--:--')
-                                        <button class="time-in-btn time-btn mr-2" onclick="recordTimeIn('{{ $employee['id'] }}')">
-                                            <i class="fas fa-sign-in-alt mr-1"></i>Time In
-                                        </button>
-                                    @endif
-                                    <button class="edit-btn time-btn" onclick="editTimeRecord('{{ $employee['id'] }}')">
-                                        <i class="fas fa-edit mr-1"></i>Edit
-                                    </button>
-                                </td>
-                            </tr>
-                            @endforeach
-
-                            <!-- Quality Control Department -->
-                            <tr class="bg-purple-50/30 dark:bg-purple-900/20">
-                                <td colspan="8" class="px-6 py-3">
-                                    <div class="flex items-center">
-                                        <i class="fas fa-search text-purple-600 dark:text-purple-400 mr-2"></i>
-                                        <span class="font-bold text-purple-700 dark:text-purple-300">Quality Control Department</span>
-                                        <span class="ml-4 text-sm text-gray-500 dark:text-gray-400">(42 employees)</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            
-                            @php
-                                $qcEmployees = [
-                                    ['id' => 'EMP-2023-101', 'name' => 'Carlos Reyes', 'shift' => 'Morning (7AM-3PM)', 'time_in' => '06:55 AM', 'time_out' => '03:02 PM', 'status' => 'present', 'hours' => '8.1'],
-                                    ['id' => 'EMP-2023-102', 'name' => 'Sofia Martinez', 'shift' => 'Morning (7AM-3PM)', 'time_in' => '07:05 AM', 'time_out' => '03:10 PM', 'status' => 'present', 'hours' => '8.1'],
-                                ];
-                            @endphp
-                            
-                            @foreach($qcEmployees as $employee)
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="flex items-center">
-                                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center text-purple-600 dark:text-purple-300 font-medium">
-                                            {{ substr($employee['name'], 0, 2) }}
-                                        </div>
-                                        <div class="ml-4">
-                                            <div class="text-sm font-medium text-gray-900 dark:text-white">{{ $employee['name'] }}</div>
-                                            <div class="text-sm text-gray-500 dark:text-gray-400">{{ $employee['id'] }}</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="department-badge department-qc">Quality Control</span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">{{ $employee['shift'] }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">{{ $employee['time_in'] }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">{{ $employee['time_out'] }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full status-present">Present</span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">{{ $employee['hours'] }} hrs</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                    <button class="edit-btn time-btn" onclick="editTimeRecord('{{ $employee['id'] }}')">
-                                        <i class="fas fa-edit mr-1"></i>Edit
-                                    </button>
-                                </td>
-                            </tr>
-                            @endforeach
-
-                            <!-- Maintenance Department -->
-                            <tr class="bg-yellow-50/30 dark:bg-yellow-900/20">
-                                <td colspan="8" class="px-6 py-3">
-                                    <div class="flex items-center">
-                                        <i class="fas fa-tools text-yellow-600 dark:text-yellow-400 mr-2"></i>
-                                        <span class="font-bold text-yellow-700 dark:text-yellow-300">Maintenance Department</span>
-                                        <span class="ml-4 text-sm text-gray-500 dark:text-gray-400">(28 employees)</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            
-                            @php
-                                $maintenanceEmployees = [
-                                    ['id' => 'EMP-2023-201', 'name' => 'James Wilson', 'shift' => 'Morning (7AM-3PM)', 'time_in' => '07:10 AM', 'time_out' => '03:15 PM', 'status' => 'late', 'hours' => '8.1'],
-                                    ['id' => 'EMP-2023-202', 'name' => 'Lisa Brown', 'shift' => 'Afternoon (3PM-11PM)', 'time_in' => '02:45 PM', 'time_out' => '--:--', 'status' => 'on-duty', 'hours' => '--'],
-                                ];
-                            @endphp
-                            
-                            @foreach($maintenanceEmployees as $employee)
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="flex items-center">
-                                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-yellow-100 dark:bg-yellow-900 flex items-center justify-center text-yellow-600 dark:text-yellow-300 font-medium">
-                                            {{ substr($employee['name'], 0, 2) }}
-                                        </div>
-                                        <div class="ml-4">
-                                            <div class="text-sm font-medium text-gray-900 dark:text-white">{{ $employee['name'] }}</div>
-                                            <div class="text-sm text-gray-500 dark:text-gray-400">{{ $employee['id'] }}</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="department-badge department-maintenance">Maintenance</span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">{{ $employee['shift'] }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium {{ $employee['time_in'] == '--:--' ? 'text-gray-400' : 'text-gray-900 dark:text-white' }}">
-                                    {{ $employee['time_in'] }}
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium {{ $employee['time_out'] == '--:--' ? 'text-gray-400' : 'text-gray-900 dark:text-white' }}">
-                                    {{ $employee['time_out'] }}
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    @if($employee['status'] == 'late')
-                                        <span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full status-late">Late</span>
-                                    @elseif($employee['status'] == 'on-duty')
-                                        <span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full status-on-duty">On Duty</span>
-                                    @endif
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">
-                                    {{ $employee['hours'] == '--' ? '--' : $employee['hours'] . ' hrs' }}
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                    @if($employee['time_out'] == '--:--')
-                                        <button class="time-out-btn time-btn mr-2" onclick="recordTimeOut('{{ $employee['id'] }}')">
-                                            <i class="fas fa-sign-out-alt mr-1"></i>Time Out
-                                        </button>
-                                    @endif
-                                    <button class="edit-btn time-btn" onclick="editTimeRecord('{{ $employee['id'] }}')">
-                                        <i class="fas fa-edit mr-1"></i>Edit
-                                    </button>
-                                </td>
-                            </tr>
-                            @endforeach
-
-                            <!-- Administration Department -->
-                            <tr class="bg-green-50/30 dark:bg-green-900/20">
-                                <td colspan="8" class="px-6 py-3">
-                                    <div class="flex items-center">
-                                        <i class="fas fa-building text-green-600 dark:text-green-400 mr-2"></i>
-                                        <span class="font-bold text-green-700 dark:text-green-300">Administration Department</span>
-                                        <span class="ml-4 text-sm text-gray-500 dark:text-gray-400">(15 employees)</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            
-                            @php
-                                $adminEmployees = [
-                                    ['id' => 'EMP-2023-301', 'name' => 'Michael Chen', 'shift' => 'Morning (7AM-3PM)', 'time_in' => '07:00 AM', 'time_out' => '03:05 PM', 'status' => 'present', 'hours' => '8.1'],
-                                ];
-                            @endphp
-                            
-                            @foreach($adminEmployees as $employee)
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="flex items-center">
-                                        <div class="flex-shrink-0 h-10 w-10 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center text-green-600 dark:text-green-300 font-medium">
-                                            {{ substr($employee['name'], 0, 2) }}
-                                        </div>
-                                        <div class="ml-4">
-                                            <div class="text-sm font-medium text-gray-900 dark:text-white">{{ $employee['name'] }}</div>
-                                            <div class="text-sm text-gray-500 dark:text-gray-400">{{ $employee['id'] }}</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="department-badge department-admin">Administration</span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">{{ $employee['shift'] }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">{{ $employee['time_in'] }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">{{ $employee['time_out'] }}</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full status-present">Present</span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">{{ $employee['hours'] }} hrs</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                    <button class="edit-btn time-btn" onclick="editTimeRecord('{{ $employee['id'] }}')">
-                                        <i class="fas fa-edit mr-1"></i>Edit
-                                    </button>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody> --}}
-                        <tbody></tbody>
+                        </tbody>
                     </table>
                 </div>
                 
                 <div class="px-6 py-4 border-t border-gray-200 dark:border-gray-700">
                     <div class="flex items-center justify-between">
-                        <div class="text-sm text-gray-500 dark:text-gray-400">
-                            Showing <span class="font-medium">1</span> to <span class="font-medium">10</span> of <span class="font-medium">230</span> employees
+                        <div class="text-sm text-gray-500 dark:text-gray-400" id="pagination-info">
+                            Showing <span class="font-medium">0</span> to <span class="font-medium">0</span> of <span class="font-medium">0</span> employees
                         </div>
-                        <div class="flex space-x-2">
-                            <button class="px-3 py-1 border border-gray-300 dark:border-gray-600 rounded-lg text-sm hover:bg-gray-50 dark:hover:bg-gray-700">Previous</button>
+                        <div class="flex space-x-2" id="pagination-controls">
+                            <button class="px-3 py-1 border border-gray-300 dark:border-gray-600 rounded-lg text-sm hover:bg-gray-50 dark:hover:bg-gray-700" disabled>Previous</button>
                             <button class="px-3 py-1 bg-blue-theme text-white rounded-lg text-sm">1</button>
-                            <button class="px-3 py-1 border border-gray-300 dark:border-gray-600 rounded-lg text-sm hover:bg-gray-50 dark:hover:bg-gray-700">2</button>
-                            <button class="px-3 py-1 border border-gray-300 dark:border-gray-600 rounded-lg text-sm hover:bg-gray-50 dark:hover:bg-gray-700">3</button>
                             <button class="px-3 py-1 border border-gray-300 dark:border-gray-600 rounded-lg text-sm hover:bg-gray-50 dark:hover:bg-gray-700">Next</button>
                         </div>
                     </div>
@@ -752,86 +523,36 @@
 
             <!-- Manual Time Entry -->
             <div class="card mt-8 p-6 content-fade-in stagger-delay-2">
-    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Manual Time Entry</h3>
-    
-<form action="{{ route('hrm.staff.time.store') }}" method="POST">
-        @csrf
-        
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div>
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Select Employee *</label>
-                <select name="employee_id" required
-                    class="w-full bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    <option value="">Select employee...</option>
-                    @foreach($employees as $employee)
-                        <option value="{{ $employee->id }}">
-                            {{ $employee->name }} ({{ $employee->employee_id }})
-                        </option>
-                    @endforeach
-                </select>
-                @error('employee_id')
-                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                @enderror
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Manual Time Entry</h3>
+                <form id="manual-time-entry-form">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Select Employee</label>
+                            <select id="employee-select" class="w-full bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <option value="">Select employee...</option>
+                                <!-- Employee options will be loaded here -->
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Time In</label>
+                            <input type="time" id="time-in-input" class="w-full bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Time Out</label>
+                            <input type="time" id="time-out-input" class="w-full bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Remarks (Optional)</label>
+                        <textarea id="remarks-input" rows="2" class="w-full bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Add remarks for this time entry..."></textarea>
+                    </div>
+                    <div class="mt-6 flex justify-end">
+                        <button type="submit" class="px-6 py-2 bg-blue-theme hover:bg-blue-700 text-white rounded-lg font-medium">
+                            <i class="fas fa-save mr-2"></i>Save Time Entry
+                        </button>
+                    </div>
+                </form>
             </div>
-            
-            <div>
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Date *</label>
-                <input type="date" name="date" required value="{{ date('Y-m-d') }}"
-                    class="w-full bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-                @error('date')
-                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                @enderror
-            </div>
-            
-            <div>
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Time In</label>
-                <input type="time" name="time_in"
-                    class="w-full bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-                @error('time_in')
-                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                @enderror
-            </div>
-            
-            <div>
-                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Time Out</label>
-                <input type="time" name="time_out"
-                    class="w-full bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-                @error('time_out')
-                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                @enderror
-            </div>
-        </div>
-        
-        <div class="mt-6">
-            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Remarks (Optional)</label>
-            <textarea name="remarks" rows="2"
-                class="w-full bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Add remarks for this time entry..."></textarea>
-            @error('remarks')
-                <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-            @enderror
-        </div>
-        
-        <div class="mt-6 flex justify-end space-x-3">
-            <button type="button" onclick="resetForm()"
-                class="px-6 py-2 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-300 rounded-lg font-medium">
-                <i class="fas fa-redo mr-2"></i>Reset
-            </button>
-            <button type="submit"
-                class="px-6 py-2 bg-blue-theme hover:bg-blue-700 text-white rounded-lg font-medium">
-                <i class="fas fa-save mr-2"></i>Save Time Entry
-            </button>
-        </div>
-    </form>
-</div>
-
-<script>
-function resetForm() {
-    document.querySelector('form').reset();
-    // Reset date to today
-    document.querySelector('input[name="date"]').value = '{{ date("Y-m-d") }}';
-}
-</script>
         </main>
     </div>
 
@@ -993,28 +714,18 @@ function resetForm() {
 
         // Time tracking functions
         function recordTimeIn(employeeId) {
-            const now = new Date();
-            const timeString = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
-            
-            if(confirm(`Record Time In for employee ${employeeId} at ${timeString}?`)) {
-                alert(`Time In recorded for ${employeeId} at ${timeString}`);
-                // In a real application, you would make an AJAX call here
-            }
+            // Implement your backend logic here
+            console.log('Record Time In for employee:', employeeId);
         }
         
         function recordTimeOut(employeeId) {
-            const now = new Date();
-            const timeString = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
-            
-            if(confirm(`Record Time Out for employee ${employeeId} at ${timeString}?`)) {
-                alert(`Time Out recorded for ${employeeId} at ${timeString}`);
-                // In a real application, you would make an AJAX call here
-            }
+            // Implement your backend logic here
+            console.log('Record Time Out for employee:', employeeId);
         }
         
         function editTimeRecord(employeeId) {
-            alert(`Edit time record for employee ${employeeId}`);
-            // In a real application, you would open a modal here
+            // Implement your backend logic here
+            console.log('Edit time record for employee:', employeeId);
         }
         
         // Initialize date picker

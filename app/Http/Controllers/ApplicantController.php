@@ -19,6 +19,14 @@ class ApplicantController extends Controller
         return view('uno.hrm.hrm_staff.application', compact('applicants'));
     }
 
+    public function archived()
+    {
+        $applicants = Applicant::where('archived', true)
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
+
+        return view('uno.hrm.hrm_staff.archived_applications', compact('applicants'));
+    }
     /**
      * Show the form for creating a new resources
      */

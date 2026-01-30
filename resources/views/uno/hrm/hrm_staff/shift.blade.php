@@ -384,7 +384,7 @@
                         
                         <button class="relative p-2.5 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300">
                             <i class="fas fa-bell"></i>
-                            <span class="notification-badge">2</span>
+                            <span class="notification-badge"></span>
                         </button>
                         
                         <button class="md:hidden p-2.5 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300" id="mobile-menu-toggle">
@@ -409,7 +409,7 @@
                     </div>
                     <div>
                         <div class="text-gray-500 dark:text-gray-400 text-sm">Morning Shift</div>
-                        <div class="text-2xl font-bold text-gray-900 dark:text-white">112</div>
+                        <div class="text-2xl font-bold text-gray-900 dark:text-white"></div>
                         <div class="text-sm text-gray-500 dark:text-gray-400">7AM - 3PM</div>
                     </div>
                 </div>
@@ -420,7 +420,7 @@
                     </div>
                     <div>
                         <div class="text-gray-500 dark:text-gray-400 text-sm">Afternoon Shift</div>
-                        <div class="text-2xl font-bold text-gray-900 dark:text-white">85</div>
+                        <div class="text-2xl font-bold text-gray-900 dark:text-white"></div>
                         <div class="text-sm text-gray-500 dark:text-gray-400">3PM - 11PM</div>
                     </div>
                 </div>
@@ -431,7 +431,7 @@
                     </div>
                     <div>
                         <div class="text-gray-500 dark:text-gray-400 text-sm">Night Shift</div>
-                        <div class="text-2xl font-bold text-gray-900 dark:text-white">33</div>
+                        <div class="text-2xl font-bold text-gray-900 dark:text-white"></div>
                         <div class="text-sm text-gray-500 dark:text-gray-400">11PM - 7AM</div>
                     </div>
                 </div>
@@ -442,8 +442,8 @@
                     </div>
                     <div>
                         <div class="text-gray-500 dark:text-gray-400 text-sm">Shift Changes Today</div>
-                        <div class="text-2xl font-bold text-gray-900 dark:text-white">8</div>
-                        <div class="text-sm text-gray-500 dark:text-gray-400">Pending: 3</div>
+                        <div class="text-2xl font-bold text-gray-900 dark:text-white"></div>
+                        <div class="text-sm text-gray-500 dark:text-gray-400">Pending: </div>
                     </div>
                 </div>
             </div>
@@ -457,21 +457,13 @@
                         <div>
                             <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Select Department</label>
                             <select id="bulk-department" class="w-full bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                <option>All Departments</option>
-                                <option>Production</option>
-                                <option>Quality Control</option>
-                                <option>Maintenance</option>
-                                <option>Administration</option>
+                                <option value="">Select Department</option>
                             </select>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Assign Shift</label>
                             <select id="bulk-shift" class="w-full bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                <option>Morning Shift (7AM - 3PM)</option>
-                                <option>Afternoon Shift (3PM - 11PM)</option>
-                                <option>Night Shift (11PM - 7AM)</option>
-                                <option>Flexible Shift</option>
-                                <option>Overtime Shift</option>
+                                <option value="">Select Shift</option>
                             </select>
                         </div>
                     </div>
@@ -517,10 +509,7 @@
                         <h3 class="text-xl font-bold text-gray-900 dark:text-white">Department Shift Assignment</h3>
                         <div class="flex items-center space-x-4">
                             <select id="week-selector" class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                <option>This Week</option>
-                                <option>Next Week</option>
-                                <option>Week 3</option>
-                                <option>Week 4</option>
+                                <option value="">Select Week</option>
                             </select>
                         </div>
                     </div>
@@ -539,196 +528,7 @@
                             </tr>
                         </thead>
                         <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-                            <!-- Production Department -->
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="flex items-center">
-                                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center">
-                                            <i class="fas fa-industry text-blue-600 dark:text-blue-300"></i>
-                                        </div>
-                                        <div class="ml-4">
-                                            <div class="text-sm font-medium text-gray-900 dark:text-white">Production</div>
-                                            <div class="text-sm text-gray-500 dark:text-gray-400">Line 1-4, Cutting, Sewing</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">65</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="space-y-1">
-                                        <div class="flex items-center">
-                                            <span class="shift-badge shift-morning">Morning: 35</span>
-                                        </div>
-                                        <div class="flex items-center">
-                                            <span class="shift-badge shift-afternoon">Afternoon: 30</span>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <select class="w-full bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                        <option>Morning: 40, Afternoon: 25</option>
-                                        <option>Morning: 45, Afternoon: 20</option>
-                                        <option>Morning: 35, Afternoon: 30</option>
-                                        <option>Rotating Shifts</option>
-                                    </select>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="flex items-center">
-                                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                            <div class="bg-green-500 h-2 rounded-full" style="width: 94%"></div>
-                                        </div>
-                                        <span class="ml-2 text-sm font-medium text-gray-900 dark:text-white">94%</span>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                    <button onclick="manageDepartmentShifts('production')" class="action-btn assign-btn mr-2">
-                                        <i class="fas fa-edit mr-1"></i>Manage
-                                    </button>
-                                    <button onclick="viewDepartmentSchedule('production')" class="action-btn edit-btn">
-                                        <i class="fas fa-eye mr-1"></i>View
-                                    </button>
-                                </td>
-                            </tr>
-                            
-                            <!-- Quality Control Department -->
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="flex items-center">
-                                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center">
-                                            <i class="fas fa-search text-purple-600 dark:text-purple-300"></i>
-                                        </div>
-                                        <div class="ml-4">
-                                            <div class="text-sm font-medium text-gray-900 dark:text-white">Quality Control</div>
-                                            <div class="text-sm text-gray-500 dark:text-gray-400">Inspection, Testing, QA</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">42</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="space-y-1">
-                                        <div class="flex items-center">
-                                            <span class="shift-badge shift-morning">Morning: 42</span>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <select class="w-full bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                        <option>Morning: 42</option>
-                                        <option>Morning: 30, Afternoon: 12</option>
-                                        <option>Rotating Shifts</option>
-                                    </select>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="flex items-center">
-                                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                            <div class="bg-blue-500 h-2 rounded-full" style="width: 96%"></div>
-                                        </div>
-                                        <span class="ml-2 text-sm font-medium text-gray-900 dark:text-white">96%</span>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                    <button onclick="manageDepartmentShifts('qc')" class="action-btn assign-btn mr-2">
-                                        <i class="fas fa-edit mr-1"></i>Manage
-                                    </button>
-                                    <button onclick="viewDepartmentSchedule('qc')" class="action-btn edit-btn">
-                                        <i class="fas fa-eye mr-1"></i>View
-                                    </button>
-                                </td>
-                            </tr>
-                            
-                            <!-- Maintenance Department -->
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="flex items-center">
-                                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-yellow-100 dark:bg-yellow-900 flex items-center justify-center">
-                                            <i class="fas fa-tools text-yellow-600 dark:text-yellow-300"></i>
-                                        </div>
-                                        <div class="ml-4">
-                                            <div class="text-sm font-medium text-gray-900 dark:text-white">Maintenance</div>
-                                            <div class="text-sm text-gray-500 dark:text-gray-400">Equipment, Facilities, Repair</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">28</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="space-y-1">
-                                        <div class="flex items-center">
-                                            <span class="shift-badge shift-morning">Morning: 18</span>
-                                        </div>
-                                        <div class="flex items-center">
-                                            <span class="shift-badge shift-afternoon">Afternoon: 10</span>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <select class="w-full bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                        <option>Morning: 15, Afternoon: 13</option>
-                                        <option>Morning: 20, Afternoon: 8</option>
-                                        <option>24/7 Coverage</option>
-                                    </select>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="flex items-center">
-                                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                            <div class="bg-yellow-500 h-2 rounded-full" style="width: 88%"></div>
-                                        </div>
-                                        <span class="ml-2 text-sm font-medium text-gray-900 dark:text-white">88%</span>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                    <button onclick="manageDepartmentShifts('maintenance')" class="action-btn assign-btn mr-2">
-                                        <i class="fas fa-edit mr-1"></i>Manage
-                                    </button>
-                                    <button onclick="viewDepartmentSchedule('maintenance')" class="action-btn edit-btn">
-                                        <i class="fas fa-eye mr-1"></i>View
-                                    </button>
-                                </td>
-                            </tr>
-                            
-                            <!-- Administration Department -->
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="flex items-center">
-                                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center">
-                                            <i class="fas fa-building text-green-600 dark:text-green-300"></i>
-                                        </div>
-                                        <div class="ml-4">
-                                            <div class="text-sm font-medium text-gray-900 dark:text-white">Administration</div>
-                                            <div class="text-sm text-gray-500 dark:text-gray-400">HR, Finance, Management</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">15</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="space-y-1">
-                                        <div class="flex items-center">
-                                            <span class="shift-badge shift-morning">Morning: 15</span>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <select class="w-full bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                        <option>Morning: 15</option>
-                                        <option>Flexible Hours</option>
-                                        <option>Hybrid Schedule</option>
-                                    </select>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="flex items-center">
-                                        <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                            <div class="bg-green-500 h-2 rounded-full" style="width: 98%"></div>
-                                        </div>
-                                        <span class="ml-2 text-sm font-medium text-gray-900 dark:text-white">98%</span>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                    <button onclick="manageDepartmentShifts('admin')" class="action-btn assign-btn mr-2">
-                                        <i class="fas fa-edit mr-1"></i>Manage
-                                    </button>
-                                    <button onclick="viewDepartmentSchedule('admin')" class="action-btn edit-btn">
-                                        <i class="fas fa-eye mr-1"></i>View
-                                    </button>
-                                </td>
-                            </tr>
+                            <!-- Department data will be populated by backend -->
                         </tbody>
                     </table>
                 </div>
@@ -749,28 +549,19 @@
                     <div>
                         <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Select Employee</label>
                         <select id="employee-select" class="w-full bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            <option>Search or select employee...</option>
-                            <option>John Dela Cruz (EMP-2023-001) - Production</option>
-                            <option>Maria Santos (EMP-2023-002) - Production</option>
-                            <option>Robert Garcia (EMP-2023-003) - Production</option>
-                            <option>Ana Perez (EMP-2023-004) - Production</option>
-                            <option>Carlos Reyes (EMP-2023-101) - Quality Control</option>
+                            <option value="">Select Employee</option>
                         </select>
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Current Shift</label>
                         <div class="bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 text-sm">
-                            <span id="current-shift-display">Morning Shift (7AM - 3PM)</span>
+                            <span id="current-shift-display"></span>
                         </div>
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">New Shift</label>
                         <select id="new-shift" class="w-full bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            <option>Morning Shift (7AM - 3PM)</option>
-                            <option>Afternoon Shift (3PM - 11PM)</option>
-                            <option>Night Shift (11PM - 7AM)</option>
-                            <option>Flexible Shift</option>
-                            <option>Overtime Shift</option>
+                            <option value="">Select New Shift</option>
                         </select>
                     </div>
                 </div>
@@ -787,13 +578,7 @@
                 <div class="mb-6">
                     <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Reason for Change</label>
                     <select id="change-reason" class="w-full bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
-                        <option>Select reason...</option>
-                        <option>Production Requirements</option>
-                        <option>Employee Request</option>
-                        <option>Training Schedule</option>
-                        <option>Leave Coverage</option>
-                        <option>Performance Management</option>
-                        <option>Other</option>
+                        <option value="">Select reason</option>
                     </select>
                 </div>
                 <div class="mb-6">
@@ -827,71 +612,7 @@
                             </tr>
                         </thead>
                         <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="flex items-center">
-                                        <div class="flex-shrink-0 h-8 w-8 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-blue-600 dark:text-blue-300 font-medium text-xs">
-                                            JD
-                                        </div>
-                                        <div class="ml-3">
-                                            <div class="text-sm font-medium text-gray-900 dark:text-white">John Dela Cruz</div>
-                                            <div class="text-xs text-gray-500 dark:text-gray-400">EMP-2023-001</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="department-badge department-production">Production</span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm">
-                                    <span class="shift-badge shift-morning">Morning</span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm">
-                                    <span class="shift-badge shift-afternoon">Afternoon</span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">Nov 28, 2023</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">Pending</span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                    <button onclick="approveShiftChange(1)" class="action-btn assign-btn mr-2 text-xs">
-                                        Approve
-                                    </button>
-                                    <button onclick="rejectShiftChange(1)" class="action-btn time-out-btn text-xs">
-                                        Reject
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="flex items-center">
-                                        <div class="flex-shrink-0 h-8 w-8 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center text-purple-600 dark:text-purple-300 font-medium text-xs">
-                                            MS
-                                        </div>
-                                        <div class="ml-3">
-                                            <div class="text-sm font-medium text-gray-900 dark:text-white">Maria Santos</div>
-                                            <div class="text-xs text-gray-500 dark:text-gray-400">EMP-2023-002</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="department-badge department-production">Production</span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm">
-                                    <span class="shift-badge shift-afternoon">Afternoon</span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm">
-                                    <span class="shift-badge shift-morning">Morning</span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">Nov 30, 2023</td>
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">Approved</span>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                    <button onclick="viewShiftDetails(2)" class="action-btn edit-btn text-xs">
-                                        View
-                                    </button>
-                                </td>
-                            </tr>
+                            <!-- Upcoming shift changes will be populated by backend -->
                         </tbody>
                     </table>
                 </div>
@@ -1055,91 +776,20 @@
             // Add any specific animations for shift page
         });
 
-        // Shift management functions
-        function applyBulkShift() {
-            const department = document.getElementById('bulk-department').value;
-            const shift = document.getElementById('bulk-shift').value;
-            const effectiveDate = document.getElementById('bulk-effective-date').value;
-            
-            if(confirm(`Apply ${shift} to ${department} effective ${effectiveDate}?`)) {
-                alert(`Shift assignment applied successfully to ${department}`);
-                // In a real application, you would make an AJAX call here
-            }
-        }
-        
-        function manageDepartmentShifts(department) {
-            alert(`Managing shifts for ${department} department`);
-            // In a real application, you would open a modal here
-        }
-        
-        function viewDepartmentSchedule(department) {
-            alert(`Viewing schedule for ${department} department`);
-            // In a real application, you would open a modal here
-        }
-        
-        function saveAllShifts() {
-            if(confirm('Save all shift changes?')) {
-                alert('All shift changes saved successfully');
-                // In a real application, you would make an AJAX call here
-            }
-        }
-        
-        function applyIndividualShift() {
-            const employee = document.getElementById('employee-select').value;
-            const newShift = document.getElementById('new-shift').value;
-            const effectiveDate = document.getElementById('effective-date').value;
-            const reason = document.getElementById('change-reason').value;
-            
-            if(confirm(`Apply ${newShift} to ${employee} effective ${effectiveDate}?`)) {
-                alert('Individual shift change applied successfully');
-                // In a real application, you would make an AJAX call here
-            }
-        }
-        
-        function previewShiftChange() {
-            alert('Preview shift change modal would open here');
-            // In a real application, you would open a preview modal here
-        }
-        
-        function approveShiftChange(id) {
-            if(confirm('Approve this shift change?')) {
-                alert(`Shift change #${id} approved`);
-                // In a real application, you would make an AJAX call here
-            }
-        }
-        
-        function rejectShiftChange(id) {
-            if(confirm('Reject this shift change?')) {
-                alert(`Shift change #${id} rejected`);
-                // In a real application, you would make an AJAX call here
-            }
-        }
-        
-        function viewShiftDetails(id) {
-            alert(`Viewing details for shift change #${id}`);
-            // In a real application, you would open a modal here
-        }
-        
-        // Quick action functions
-        function generateShiftSchedule() {
-            alert('Generating weekly shift schedule...');
-            // In a real application, you would trigger schedule generation
-        }
-        
-        function viewShiftRotation() {
-            alert('Opening shift rotation view...');
-            // In a real application, you would navigate or open a modal
-        }
-        
-        function manageOvertime() {
-            alert('Opening overtime management...');
-            // In a real application, you would navigate or open a modal
-        }
-        
-        function exportShiftReport() {
-            alert('Exporting shift report...');
-            // In a real application, you would trigger report export
-        }
+        // Shift management functions - empty for backend implementation
+        function applyBulkShift() {}
+        function manageDepartmentShifts(department) {}
+        function viewDepartmentSchedule(department) {}
+        function saveAllShifts() {}
+        function applyIndividualShift() {}
+        function previewShiftChange() {}
+        function approveShiftChange(id) {}
+        function rejectShiftChange(id) {}
+        function viewShiftDetails(id) {}
+        function generateShiftSchedule() {}
+        function viewShiftRotation() {}
+        function manageOvertime() {}
+        function exportShiftReport() {}
         
         // Initialize date pickers
         document.addEventListener('DOMContentLoaded', () => {

@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Applicant extends Model
 {
@@ -30,14 +32,62 @@ class Applicant extends Model
         'notice_period',
         'experience',
         'status',
+        'interview_date', // Added for quick access
+        'interview_time', // Added for quick access
     ];
-
 
     protected $casts = [
         'birth_date' => 'date',
         'available_start_date' => 'date',
+        'interview_date' => 'date',
         'has_textile_experience' => 'boolean',
+        'expected_salary' => 'decimal:2',
     ];
+
+    // Add these accessors for interview data
+    public function getInterviewDateTimeAttribute(): ?string
+    {
+        if ($this->interview_date && $this->interview_time) {
+            return $this->interview_date->format('Y-m-d') . ' ' . $this->interview_time;
+        }
+        return null;
+    }
+
+    public function getFormattedInterviewDateTimeAttribute(): ?string
+    {
+        if ($this->interview_date && $this->interview_time) {
+            return $this->interview_date->format('F d, Y') . ' at ' . 
+                   date('g:i A', strtotime($this->interview_time));
+        }
+        return null;
+    }
+
+    public function getUpcomingInterviewAttribute(): bool
+    {
+        if (!$this->interview_date) {
+            return false;
+        }
+        
+        $interviewDateTime = $this->interview_date->copy();
+        if ($this->interview_time) {
+            $timeParts = explode(':', $this->interview_time);
+            $interviewDateTime->setTime($timeParts[0], $timeParts[1] ?? 0);
+        }
+        
+        return $interviewDateTime->isFuture();
+    }
+
+    public function getInterviewStatusAttribute(): string
+    {
+        if ($this->status === 'interview_scheduled') {
+            if ($this->upcoming_interview) {
+                return 'Upcoming';
+            } else {
+                return 'Past Interview';
+            }
+        }
+        return '';
+    }
 
     // Accessors
     public function getFullNameAttribute(): string
@@ -85,6 +135,33 @@ class Applicant extends Model
         return $query->where('status', 'rejected');
     }
 
+    public function scopeInterviewScheduled($query)
+    {
+        return $query->where('status', 'interview_scheduled');
+    }
+
+    public function scopeInterviewed($query)
+    {
+        return $query->where('status', 'interviewed');
+    }
+
+    public function scopeHired($query)
+    {
+        return $query->where('status', 'hired');
+    }
+
+    public function scopeWithUpcomingInterviews($query)
+    {
+        return $query->where('status', 'interview_scheduled')
+                    ->whereDate('interview_date', '>=', now());
+    }
+
+    public function scopeWithPastInterviews($query)
+    {
+        return $query->where('status', 'interview_scheduled')
+                    ->whereDate('interview_date', '<', now());
+    }
+
     // Position names mapping
     public static function positionOptions(): array
     {
@@ -127,9 +204,20 @@ class Applicant extends Model
         return [
             'pending' => 'Pending',
             'under_review' => 'Under Review',
+            'interview_scheduled' => 'Interview Scheduled',
+            'interviewed' => 'Interviewed',
             'shortlisted' => 'Shortlisted',
             'rejected' => 'Rejected',
             'hired' => 'Hired',
+        ];
+    }
+
+    public static function interviewTypeOptions(): array
+    {
+        return [
+            'phone' => 'Phone Interview',
+            'video' => 'Video Interview',
+            'in_person' => 'In-Person Interview',
         ];
     }
 
@@ -148,4 +236,98 @@ class Applicant extends Model
         return self::statusOptions()[$this->status] ?? $this->status;
     }
 
+    // Relationships
+    public function interviews(): HasMany
+    {
+        return $this->hasMany(Interview::class)->orderBy('interview_date', 'desc');
+    }
+
+    public function latestInterview(): HasOne
+    {
+        return $this->hasOne(Interview::class)->latestOfMany();
+    }
+
+    public function upcomingInterview(): HasOne
+    {
+        return $this->hasOne(Interview::class)
+                    ->where('interview_date', '>=', now()->toDateString())
+                    ->orderBy('interview_date', 'asc');
+    }
+
+    // Business logic methods
+    public function scheduleInterview(array $interviewData): Interview
+    {
+        $interview = $this->interviews()->create([
+            'interview_date' => $interviewData['interview_date'],
+            'interview_time' => $interviewData['interview_time'],
+            'interview_type' => $interviewData['interview_type'],
+            'interviewers' => $interviewData['interviewers'] ?? null,
+            'notes' => $interviewData['notes'] ?? null,
+            'scheduled_by' => auth()->id(),
+            'scheduled_at' => now(),
+        ]);
+
+        // Update applicant status and store interview details
+        $this->update([
+            'status' => 'interview_scheduled',
+            'interview_date' => $interviewData['interview_date'],
+            'interview_time' => $interviewData['interview_time'],
+        ]);
+
+        return $interview;
+    }
+
+    public function cancelInterview(): void
+    {
+        $this->update([
+            'status' => 'pending',
+            'interview_date' => null,
+            'interview_time' => null,
+        ]);
+
+        // Optionally, you could also mark the interview as cancelled
+        $this->latestInterview?->update(['cancelled_at' => now()]);
+    }
+
+    public function markAsInterviewed(): void
+    {
+        $this->update([
+            'status' => 'interviewed'
+        ]);
+    }
+
+    public function hasInterviewScheduled(): bool
+    {
+        return $this->status === 'interview_scheduled';
+    }
+
+    public function getInterviewScoreAttribute(): ?float
+    {
+        $latestInterview = $this->latestInterview;
+        return $latestInterview ? $latestInterview->score : null;
+    }
+
+    public function getInterviewFeedbackAttribute(): ?string
+    {
+        $latestInterview = $this->latestInterview;
+        return $latestInterview ? $latestInterview->feedback : null;
+    }
+
+    // Event handlers
+    protected static function boot()
+    {
+        parent::boot();
+
+        // Automatically set available_start_date if not provided
+        static::creating(function ($applicant) {
+            if (!$applicant->available_start_date) {
+                $applicant->available_start_date = now()->addDays(14);
+            }
+        });
+
+        // Clean up interviews when applicant is deleted
+        static::deleting(function ($applicant) {
+            $applicant->interviews()->delete();
+        });
+    }
 }

@@ -1,13 +1,13 @@
 <?php
 
+use App\Http\Controllers\ApplicantController;
+use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\uno\hrm\hrm_manager\DashboardController as HRMManagerDashboardController;
 use App\Http\Controllers\uno\hrm\hrm_staff\DashboardController as HRMStaffDashboardController;
 use App\Http\Controllers\uno\scm\scm_manager\DashboardController as SCMManagerDashboardController;
 use App\Http\Controllers\uno\scm\scm_staff\DashboardController as SCMStaffDashboardController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ApplicantController;
-use App\Http\Controllers\AttendanceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +15,7 @@ use App\Http\Controllers\AttendanceController;
 |--------------------------------------------------------------------------
 */
 
-Route::get('/', fn() => view('welcome'));
+Route::get('/', fn () => view('welcome'));
 
 /*
 |--------------------------------------------------------------------------
@@ -88,7 +88,7 @@ Route::prefix('hrm')
                 Route::prefix('applicants')->name('applicants.')->controller(ApplicantController::class)->group(function () {
                     Route::get('/', 'index')->name('index');
                     Route::get('/create', 'create')->name('create');
-                    
+
                     Route::get('/{applicant}', 'show')->name('show');
                     Route::get('/{applicant}/edit', 'edit')->name('edit');
                     Route::put('/{applicant}', 'update')->name('update');
@@ -107,7 +107,7 @@ Route::prefix('apply')->name('applicants.')->group(function () {
 // Admin applicant management routes (protected)
 Route::middleware(['auth'])->group(function () {
     Route::resource('applicants', ApplicantController::class)->except(['create', 'store']);
-    
+
     // Additional routes
     Route::get('/applicants/{applicant}/download/{documentType}', [ApplicantController::class, 'downloadDocument'])
         ->name('applicants.download.document');
@@ -125,14 +125,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/attendance', [AttendanceController::class, 'index'])->name('attendance.index');
 });
 
-
-
 /*
 |--------------------------------------------------------------------------
 | SCM MODULE
 |--------------------------------------------------------------------------
 */
-
 
 Route::prefix('scm')
     ->middleware(['auth', 'role:scm'])
@@ -160,7 +157,6 @@ Route::prefix('scm')
                 Route::get('/settings', 'settings')->name('settings');
             });
 
-
         // SCM Staff Routes
         Route::prefix('staff')
             ->middleware('position:staff')
@@ -176,3 +172,4 @@ Route::prefix('scm')
                 Route::get('/settings', 'settings')->name('settings');
             });
     });
+//stop ka herr

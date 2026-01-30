@@ -518,7 +518,7 @@
                         
                         <button class="relative p-2.5 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300">
                             <i class="fas fa-bell"></i>
-                            <span class="notification-badge">3</span>
+                            <span class="notification-badge"></span>
                         </button>
                         
                         <button class="md:hidden p-2.5 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300" id="mobile-menu-toggle">
@@ -543,7 +543,7 @@
                     </div>
                     <div>
                         <div class="text-gray-500 dark:text-gray-400 text-sm">Total Monthly Payroll</div>
-                        <div class="text-2xl font-bold text-gray-900 dark:text-white">₱850,250</div>
+                        <div class="text-2xl font-bold text-gray-900 dark:text-white"></div>
                     </div>
                 </div>
                 
@@ -553,7 +553,7 @@
                     </div>
                     <div>
                         <div class="text-gray-500 dark:text-gray-400 text-sm">Employees to Pay</div>
-                        <div class="text-2xl font-bold text-gray-900 dark:text-white">245</div>
+                        <div class="text-2xl font-bold text-gray-900 dark:text-white"></div>
                     </div>
                 </div>
                 
@@ -563,7 +563,7 @@
                     </div>
                     <div>
                         <div class="text-gray-500 dark:text-gray-400 text-sm">Pending Processing</div>
-                        <div class="text-2xl font-bold text-gray-900 dark:text-white">18</div>
+                        <div class="text-2xl font-bold text-gray-900 dark:text-white"></div>
                     </div>
                 </div>
                 
@@ -573,7 +573,7 @@
                     </div>
                     <div>
                         <div class="text-gray-500 dark:text-gray-400 text-sm">Tax Deductions</div>
-                        <div class="text-2xl font-bold text-gray-900 dark:text-white">₱127,538</div>
+                        <div class="text-2xl font-bold text-gray-900 dark:text-white"></div>
                     </div>
                 </div>
             </div>
@@ -592,8 +592,6 @@
                         class="inline-flex px-4 py-2 bg-yellow-theme hover:bg-yellow-600 text-gray-900 font-semibold rounded-xl transition-colors shadow-md items-center featured-banner-button">
                             Process Payroll Run <i class="fas fa-play-circle ml-2"></i>
                         </a>
-
-
                     </div>
                     <div class="featured-banner-image animate-float">
                         <div class="w-48 h-32 bg-gradient-to-r from-green-400 to-green-300 dark:from-green-500 dark:to-green-400 rounded-lg shadow-xl flex items-center justify-center">
@@ -627,16 +625,16 @@
                     <div class="mb-3">
                         <div class="flex justify-between text-sm mb-1">
                             <span class="text-gray-600 dark:text-gray-300">Current Month Progress</span>
-                            <span class="text-blue-theme font-medium">75%</span>
+                            <span class="text-blue-theme font-medium"></span>
                         </div>
                         <div class="course-progress">
-                            <div class="course-progress-fill" style="width: 75%"></div>
+                            <div class="course-progress-fill" style="width: 0%"></div>
                         </div>
                     </div>
                     
                     <div class="flex justify-between text-xs text-gray-500 dark:text-gray-400">
-                        <span>184 Processed</span>
-                        <span>61 Pending</span>
+                        <span></span>
+                        <span></span>
                     </div>
                 </div>
                 
@@ -653,16 +651,16 @@
                     <div class="mb-3">
                         <div class="flex justify-between text-sm mb-1">
                             <span class="text-gray-600 dark:text-gray-300">Report Completion</span>
-                            <span class="text-blue-theme font-medium">92%</span>
+                            <span class="text-blue-theme font-medium"></span>
                         </div>
                         <div class="course-progress">
-                            <div class="course-progress-fill" style="width: 92%"></div>
+                            <div class="course-progress-fill" style="width: 0%"></div>
                         </div>
                     </div>
                     
                     <div class="flex justify-between text-xs text-gray-500 dark:text-gray-400">
-                        <span>12 Reports</span>
-                        <span>2 Due</span>
+                        <span></span>
+                        <span></span>
                     </div>
                 </div>
             </div>
@@ -690,11 +688,11 @@
                 </p>
                 
                 <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5 mt-5">
-                    <div class="bg-green-theme h-2.5 rounded-full" style="width: 95%"></div>
+                    <div class="bg-green-theme h-2.5 rounded-full" style="width: 0%"></div>
                 </div>
                 <div class="w-full flex justify-between text-sm text-gray-500 dark:text-gray-400 mt-2">
                     <span>Payroll Accuracy</span>
-                    <span class="text-gray-900 dark:text-white font-medium">95%</span>
+                    <span class="text-gray-900 dark:text-white font-medium"></span>
                 </div>
                 
                 <a href="#" class="w-full mt-5">
@@ -713,44 +711,7 @@
             </div>
             
             <div class="space-y-4">
-                <div class="flex items-center justify-between p-3 rounded-xl bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600">
-                    <div class="flex items-center">
-                        <div class="w-10 h-10 rounded-lg bg-green-100 dark:bg-green-900 flex items-center justify-center mr-3">
-                            <i class="fas fa-money-check-alt text-green-600 dark:text-green-300"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-medium text-gray-900 dark:text-white">REGULAR PAYROLL</h4>
-                            <p class="text-gray-500 dark:text-gray-400 text-xs">Monthly Salary Distribution</p>
-                        </div>
-                    </div>
-                    <span class="text-gray-500 dark:text-gray-400 text-sm font-medium">Nov 25</span>
-                </div>
-                
-                <div class="flex items-center justify-between p-3 rounded-xl bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600">
-                    <div class="flex items-center">
-                        <div class="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900 flex items-center justify-center mr-3">
-                            <i class="fas fa-gift text-blue-600 dark:text-blue-300"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-medium text-gray-900 dark:text-white">13TH MONTH PAY</h4>
-                            <p class="text-gray-500 dark:text-gray-400 text-xs">Year-end Bonus Release</p>
-                        </div>
-                    </div>
-                    <span class="text-gray-500 dark:text-gray-400 text-sm font-medium">Dec 15</span>
-                </div>
-                
-                <div class="flex items-center justify-between p-3 rounded-xl bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600">
-                    <div class="flex items-center">
-                        <div class="w-10 h-10 rounded-lg bg-red-100 dark:bg-red-900 flex items-center justify-center mr-3">
-                            <i class="fas fa-file-alt text-red-600 dark:text-red-300"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-medium text-gray-900 dark:text-white">TAX FILING</h4>
-                            <p class="text-gray-500 dark:text-gray-400 text-xs">BIR 2316 Submission</p>
-                        </div>
-                    </div>
-                    <span class="text-gray-500 dark:text-gray-400 text-sm font-medium">Jan 31</span>
-                </div>
+                <!-- Payroll schedule items will be populated by backend -->
             </div>
         </div>
     </div>
@@ -766,53 +727,7 @@
     </div>
     
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 instructors-grid">
-        <div class="card p-5 flex flex-col items-center text-center content-fade-in stagger-delay-1">
-            <div class="rounded-full w-16 h-16 bg-green-100 dark:bg-green-900 flex items-center justify-center text-green-600 dark:text-green-300 text-xl font-bold mb-4">
-                AG
-            </div>
-            <h4 class="font-bold text-gray-900 dark:text-white">Anna Gomez</h4>
-            <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Payroll Manager</p>
-            <div class="mt-3 flex items-center text-xs">
-                <span class="status-indicator status-online mr-2"></span>
-                <span class="text-green-600 dark:text-green-400 font-medium">Available</span>
-            </div>
-        </div>
-        
-        <div class="card p-5 flex flex-col items-center text-center content-fade-in stagger-delay-2">
-            <div class="rounded-full w-16 h-16 bg-green-100 dark:bg-green-900 flex items-center justify-center text-green-600 dark:text-green-300 text-xl font-bold mb-4">
-                MR
-            </div>
-            <h4 class="font-bold text-gray-900 dark:text-white">Mark Reyes</h4>
-            <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Tax Specialist</p>
-            <div class="mt-3 flex items-center text-xs">
-                <span class="status-indicator status-offline mr-2"></span>
-                <span class="text-gray-500 dark:text-gray-400 font-medium">On Leave</span>
-            </div>
-        </div>
-        
-        <div class="card p-5 flex flex-col items-center text-center content-fade-in stagger-delay-3">
-            <div class="rounded-full w-16 h-16 bg-green-100 dark:bg-green-900 flex items-center justify-center text-green-600 dark:text-green-300 text-xl font-bold mb-4">
-                LC
-            </div>
-            <h4 class="font-bold text-gray-900 dark:text-white">Lisa Cruz</h4>
-            <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Benefits Administrator</p>
-            <div class="mt-3 flex items-center text-xs">
-                <span class="status-indicator status-online mr-2"></span>
-                <span class="text-green-600 dark:text-green-400 font-medium">Available</span>
-            </div>
-        </div>
-        
-        <div class="card p-5 flex flex-col items-center text-center content-fade-in stagger-delay-4">
-            <div class="rounded-full w-16 h-16 bg-green-100 dark:bg-green-900 flex items-center justify-center text-green-600 dark:text-green-300 text-xl font-bold mb-4">
-                DP
-            </div>
-            <h4 class="font-bold text-gray-900 dark:text-white">David Park</h4>
-            <p class="text-gray-500 dark:text-gray-400 text-sm mt-1">Audit Officer</p>
-            <div class="mt-3 flex items-center text-xs">
-                <span class="status-indicator status-offline mr-2"></span>
-                <span class="text-gray-500 dark:text-gray-400 font-medium">In Meeting</span>
-            </div>
-        </div>
+        <!-- Payroll team members will be populated by backend -->
     </div>
 </div>
 
@@ -838,69 +753,7 @@
                     </tr>
                 </thead>
                 <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-                    <tr>
-                        <td class="px-4 py-4 whitespace-nowrap">
-                            <div class="flex items-center">
-                                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-blue-600 dark:text-blue-300 font-medium">
-                                    JD
-                                </div>
-                                <div class="ml-4">
-                                    <div class="text-sm font-medium text-gray-900 dark:text-white">John Dela Cruz</div>
-                                    <div class="text-sm text-gray-500 dark:text-gray-400">EMP-2023-001</div>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">Production</td>
-                        <td class="px-4 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">₱18,500</td>
-                        <td class="px-4 py-4 whitespace-nowrap">
-                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">
-                                Paid
-                            </span>
-                        </td>
-                        <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">Nov 15, 2023</td>
-                    </tr>
-                    <tr>
-                        <td class="px-4 py-4 whitespace-nowrap">
-                            <div class="flex items-center">
-                                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center text-purple-600 dark:text-purple-300 font-medium">
-                                    MS
-                                </div>
-                                <div class="ml-4">
-                                    <div class="text-sm font-medium text-gray-900 dark:text-white">Maria Santos</div>
-                                    <div class="text-sm text-gray-500 dark:text-gray-400">EMP-2023-045</div>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">Quality Control</td>
-                        <td class="px-4 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">₱21,300</td>
-                        <td class="px-4 py-4 whitespace-nowrap">
-                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">
-                                Pending
-                            </span>
-                        </td>
-                        <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">Nov 20, 2023</td>
-                    </tr>
-                    <tr>
-                        <td class="px-4 py-4 whitespace-nowrap">
-                            <div class="flex items-center">
-                                <div class="flex-shrink-0 h-10 w-10 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center text-green-600 dark:text-green-300 font-medium">
-                                    RG
-                                </div>
-                                <div class="ml-4">
-                                    <div class="text-sm font-medium text-gray-900 dark:text-white">Robert Garcia</div>
-                                    <div class="text-sm text-gray-500 dark:text-gray-400">EMP-2023-089</div>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">Maintenance</td>
-                        <td class="px-4 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">₱16,800</td>
-                        <td class="px-4 py-4 whitespace-nowrap">
-                            <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">
-                                Paid
-                            </span>
-                        </td>
-                        <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">Nov 15, 2023</td>
-                    </tr>
+                    <!-- Transactions will be populated by backend -->
                 </tbody>
             </table>
         </div>

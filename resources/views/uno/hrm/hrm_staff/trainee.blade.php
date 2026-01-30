@@ -875,7 +875,7 @@
                         
                         <button class="relative p-2.5 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300">
                             <i class="fas fa-bell"></i>
-                            <span class="notification-badge">3</span>
+                            <span class="notification-badge">0</span>
                         </button>
                         
                         <button class="md:hidden p-2.5 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300" id="mobile-menu-toggle">
@@ -900,7 +900,7 @@
                     </div>
                     <div>
                         <div class="text-gray-500 dark:text-gray-400 text-sm">New Applicants</div>
-                        <div class="text-2xl font-bold text-gray-900 dark:text-white">12</div>
+                        <div class="text-2xl font-bold text-gray-900 dark:text-white" id="new-applicants-count">0</div>
                     </div>
                 </div>
                 
@@ -910,7 +910,7 @@
                     </div>
                     <div>
                         <div class="text-gray-500 dark:text-gray-400 text-sm">In Training</div>
-                        <div class="text-2xl font-bold text-gray-900 dark:text-white">8</div>
+                        <div class="text-2xl font-bold text-gray-900 dark:text-white" id="in-training-count">0</div>
                     </div>
                 </div>
                 
@@ -920,7 +920,7 @@
                     </div>
                     <div>
                         <div class="text-gray-500 dark:text-gray-400 text-sm">Approved</div>
-                        <div class="text-2xl font-bold text-gray-900 dark:text-white">5</div>
+                        <div class="text-2xl font-bold text-gray-900 dark:text-white" id="approved-count">0</div>
                     </div>
                 </div>
                 
@@ -930,7 +930,7 @@
                     </div>
                     <div>
                         <div class="text-gray-500 dark:text-gray-400 text-sm">Pending Review</div>
-                        <div class="text-2xl font-bold text-gray-900 dark:text-white">3</div>
+                        <div class="text-2xl font-bold text-gray-900 dark:text-white" id="pending-review-count">0</div>
                     </div>
                 </div>
             </div>
@@ -944,10 +944,10 @@
                     </div>
                     
                     <div class="flex items-center space-x-3">
-                        <button class="px-4 py-2.5 bg-blue-theme hover:bg-blue-700 text-white rounded-xl font-medium transition-colors flex items-center">
+                        <button id="add-applicant-btn" class="px-4 py-2.5 bg-blue-theme hover:bg-blue-700 text-white rounded-xl font-medium transition-colors flex items-center">
                             <i class="fas fa-plus mr-2"></i> Add Applicant
                         </button>
-                        <button class="px-4 py-2.5 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors flex items-center">
+                        <button id="export-btn" class="px-4 py-2.5 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors flex items-center">
                             <i class="fas fa-download mr-2"></i> Export
                         </button>
                     </div>
@@ -958,12 +958,12 @@
                     <div class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Filter by Department:</div>
                     <div class="filter-pills-container">
                         <div class="filter-pills flex flex-wrap gap-2">
-                            <div class="filter-pill active" data-department="all">All Departments (12)</div>
-                            <div class="filter-pill" data-department="production">Production (5)</div>
-                            <div class="filter-pill" data-department="quality">Quality Control (3)</div>
-                            <div class="filter-pill" data-department="maintenance">Maintenance (2)</div>
-                            <div class="filter-pill" data-department="warehouse">Warehouse (1)</div>
-                            <div class="filter-pill" data-department="admin">Administration (1)</div>
+                            <div class="filter-pill active" data-department="all">All Departments (0)</div>
+                            <div class="filter-pill" data-department="production">Production (0)</div>
+                            <div class="filter-pill" data-department="quality">Quality Control (0)</div>
+                            <div class="filter-pill" data-department="maintenance">Maintenance (0)</div>
+                            <div class="filter-pill" data-department="warehouse">Warehouse (0)</div>
+                            <div class="filter-pill" data-department="admin">Administration (0)</div>
                         </div>
                     </div>
                 </div>
@@ -972,11 +972,11 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                     <div class="relative">
                         <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
-                        <input type="text" placeholder="Search applicants by name or ID..." class="w-full pl-10 pr-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <input type="text" id="applicant-search" placeholder="Search applicants by name or ID..." class="w-full pl-10 pr-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                     </div>
                     
                     <div class="flex items-center space-x-4">
-                        <select class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <select id="status-filter" class="w-full px-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                             <option value="">All Status</option>
                             <option value="pending">Pending Training</option>
                             <option value="in-training">In Training</option>
@@ -992,8 +992,8 @@
             <div class="mb-8 content-fade-in stagger-delay-2">
                 <div class="flex justify-between items-center mb-6">
                     <h3 class="font-bold text-xl text-gray-900 dark:text-white">Applicant Training Records</h3>
-                    <div class="text-sm text-gray-500 dark:text-gray-400">
-                        Showing <span class="font-medium text-gray-900 dark:text-white">12</span> of <span class="font-medium text-gray-900 dark:text-white">12</span> applicants
+                    <div class="text-sm text-gray-500 dark:text-gray-400" id="applicant-count-info">
+                        Showing <span class="font-medium text-gray-900 dark:text-white">0</span> of <span class="font-medium text-gray-900 dark:text-white">0</span> applicants
                     </div>
                 </div>
                 
@@ -1011,307 +1011,13 @@
                                     <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Actions</th>
                                 </tr>
                             </thead>
-                            <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-                                <!-- Applicant 1 -->
-                                <tr class="applicant-row" data-department="production">
-                                    <td class="px-6 py-4">
-                                        <div class="flex items-center">
-                                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-blue-600 dark:text-blue-300 font-medium">
-                                                JD
-                                            </div>
-                                            <div class="ml-4">
-                                                <div class="text-sm font-medium text-gray-900 dark:text-white">Juan Dela Cruz</div>
-                                                <div class="text-sm text-gray-500 dark:text-gray-400">ID: APP-001</div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <span class="department-badge department-production">
-                                            <i class="fas fa-industry mr-1"></i> Production
-                                        </span>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
-                                        Nov 1, 2023
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="flex items-center">
-                                            <div class="w-32 mr-3">
-                                                <div class="course-progress">
-                                                    <div class="course-progress-fill" style="width: 75%"></div>
-                                                </div>
-                                            </div>
-                                            <span class="text-sm font-medium text-gray-900 dark:text-white">75%</span>
-                                        </div>
-                                        <div class="text-xs text-gray-500 dark:text-gray-400 mt-1">Week 3 of 4</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <span class="applicant-status-badge applicant-status-in-training">
-                                            In Training
-                                        </span>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="flex items-center">
-                                            <div class="w-8 h-8 rounded-full bg-yellow-100 dark:bg-yellow-900 flex items-center justify-center text-yellow-600 dark:text-yellow-300 mr-2">
-                                                <i class="fas fa-clock text-xs"></i>
-                                            </div>
-                                            <span class="text-sm text-gray-900 dark:text-white">Pending</span>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="flex items-center space-x-2">
-                                            <button class="p-2 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900 rounded-lg view-applicant-btn" data-id="1">
-                                                <i class="fas fa-eye"></i>
-                                            </button>
-                                            <button class="p-2 text-green-600 dark:text-green-400 hover:bg-green-50 dark:hover:bg-green-900 rounded-lg approve-btn" data-id="1">
-                                                <i class="fas fa-check"></i>
-                                            </button>
-                                            <button class="p-2 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900 rounded-lg reject-btn" data-id="1">
-                                                <i class="fas fa-times"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                
-                                <!-- Applicant 2 -->
-                                <tr class="applicant-row" data-department="quality">
-                                    <td class="px-6 py-4">
-                                        <div class="flex items-center">
-                                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center text-purple-600 dark:text-purple-300 font-medium">
-                                                MS
-                                            </div>
-                                            <div class="ml-4">
-                                                <div class="text-sm font-medium text-gray-900 dark:text-white">Maria Santos</div>
-                                                <div class="text-sm text-gray-500 dark:text-gray-400">ID: APP-002</div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <span class="department-badge department-quality">
-                                            <i class="fas fa-clipboard-check mr-1"></i> Quality Control
-                                        </span>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
-                                        Nov 3, 2023
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="flex items-center">
-                                            <div class="w-32 mr-3">
-                                                <div class="course-progress">
-                                                    <div class="course-progress-fill" style="width: 100%"></div>
-                                                </div>
-                                            </div>
-                                            <span class="text-sm font-medium text-gray-900 dark:text-white">100%</span>
-                                        </div>
-                                        <div class="text-xs text-gray-500 dark:text-gray-400 mt-1">Completed</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <span class="applicant-status-badge applicant-status-evaluating">
-                                            Under Evaluation
-                                        </span>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="flex items-center">
-                                            <div class="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-blue-600 dark:text-blue-300 mr-2">
-                                                <i class="fas fa-chart-bar text-xs"></i>
-                                            </div>
-                                            <span class="text-sm text-gray-900 dark:text-white">85% Score</span>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="flex items-center space-x-2">
-                                            <button class="p-2 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900 rounded-lg view-applicant-btn" data-id="2">
-                                                <i class="fas fa-eye"></i>
-                                            </button>
-                                            <button class="p-2 text-green-600 dark:text-green-400 hover:bg-green-50 dark:hover:bg-green-900 rounded-lg approve-btn" data-id="2">
-                                                <i class="fas fa-check"></i>
-                                            </button>
-                                            <button class="p-2 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900 rounded-lg reject-btn" data-id="2">
-                                                <i class="fas fa-times"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                
-                                <!-- Applicant 3 -->
-                                <tr class="applicant-row" data-department="maintenance">
-                                    <td class="px-6 py-4">
-                                        <div class="flex items-center">
-                                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center text-green-600 dark:text-green-300 font-medium">
-                                                RG
-                                            </div>
-                                            <div class="ml-4">
-                                                <div class="text-sm font-medium text-gray-900 dark:text-white">Roberto Garcia</div>
-                                                <div class="text-sm text-gray-500 dark:text-gray-400">ID: APP-003</div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <span class="department-badge department-maintenance">
-                                            <i class="fas fa-tools mr-1"></i> Maintenance
-                                        </span>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
-                                        Oct 28, 2023
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="flex items-center">
-                                            <div class="w-32 mr-3">
-                                                <div class="course-progress">
-                                                    <div class="course-progress-fill" style="width: 50%"></div>
-                                                </div>
-                                            </div>
-                                            <span class="text-sm font-medium text-gray-900 dark:text-white">50%</span>
-                                        </div>
-                                        <div class="text-xs text-gray-500 dark:text-gray-400 mt-1">Week 2 of 4</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <span class="applicant-status-badge applicant-status-in-training">
-                                            In Training
-                                        </span>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="flex items-center">
-                                            <div class="w-8 h-8 rounded-full bg-yellow-100 dark:bg-yellow-900 flex items-center justify-center text-yellow-600 dark:text-yellow-300 mr-2">
-                                                <i class="fas fa-clock text-xs"></i>
-                                            </div>
-                                            <span class="text-sm text-gray-900 dark:text-white">In Progress</span>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="flex items-center space-x-2">
-                                            <button class="p-2 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900 rounded-lg view-applicant-btn" data-id="3">
-                                                <i class="fas fa-eye"></i>
-                                            </button>
-                                            <button class="p-2 text-green-600 dark:text-green-400 hover:bg-green-50 dark:hover:bg-green-900 rounded-lg approve-btn" data-id="3">
-                                                <i class="fas fa-check"></i>
-                                            </button>
-                                            <button class="p-2 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900 rounded-lg reject-btn" data-id="3">
-                                                <i class="fas fa-times"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                
-                                <!-- Applicant 4 -->
-                                <tr class="applicant-row" data-department="warehouse">
-                                    <td class="px-6 py-4">
-                                        <div class="flex items-center">
-                                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-yellow-100 dark:bg-yellow-900 flex items-center justify-center text-yellow-600 dark:text-yellow-300 font-medium">
-                                                AL
-                                            </div>
-                                            <div class="ml-4">
-                                                <div class="text-sm font-medium text-gray-900 dark:text-white">Ana Lopez</div>
-                                                <div class="text-sm text-gray-500 dark:text-gray-400">ID: APP-004</div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <span class="department-badge department-warehouse">
-                                            <i class="fas fa-boxes mr-1"></i> Warehouse
-                                        </span>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
-                                        Nov 5, 2023
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="flex items-center">
-                                            <div class="w-32 mr-3">
-                                                <div class="course-progress">
-                                                    <div class="course-progress-fill" style="width: 0%"></div>
-                                                </div>
-                                            </div>
-                                            <span class="text-sm font-medium text-gray-900 dark:text-white">0%</span>
-                                        </div>
-                                        <div class="text-xs text-gray-500 dark:text-gray-400 mt-1">Starts Nov 15</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <span class="applicant-status-badge applicant-status-pending">
-                                            Pending Training
-                                        </span>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="flex items-center">
-                                            <div class="w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-500 dark:text-gray-400 mr-2">
-                                                <i class="fas fa-minus text-xs"></i>
-                                            </div>
-                                            <span class="text-sm text-gray-900 dark:text-white">Not Started</span>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="flex items-center space-x-2">
-                                            <button class="p-2 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900 rounded-lg view-applicant-btn" data-id="4">
-                                                <i class="fas fa-eye"></i>
-                                            </button>
-                                            <button class="p-2 text-green-600 dark:text-green-400 hover:bg-green-50 dark:hover:bg-green-900 rounded-lg approve-btn" data-id="4">
-                                                <i class="fas fa-check"></i>
-                                            </button>
-                                            <button class="p-2 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900 rounded-lg reject-btn" data-id="4">
-                                                <i class="fas fa-times"></i>
-                                            </button>
-                                            <button class="p-2 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-900 rounded-lg schedule-btn" data-id="4">
-                                                <i class="fas fa-calendar-alt"></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                
-                                <!-- Applicant 5 -->
-                                <tr class="applicant-row" data-department="production">
-                                    <td class="px-6 py-4">
-                                        <div class="flex items-center">
-                                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-red-100 dark:bg-red-900 flex items-center justify-center text-red-600 dark:text-red-300 font-medium">
-                                                MR
-                                            </div>
-                                            <div class="ml-4">
-                                                <div class="text-sm font-medium text-gray-900 dark:text-white">Miguel Reyes</div>
-                                                <div class="text-sm text-gray-500 dark:text-gray-400">ID: APP-005</div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <span class="department-badge department-production">
-                                            <i class="fas fa-industry mr-1"></i> Production
-                                        </span>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
-                                        Oct 25, 2023
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="flex items-center">
-                                            <div class="w-32 mr-3">
-                                                <div class="course-progress">
-                                                    <div class="course-progress-fill" style="width: 100%"></div>
-                                                </div>
-                                            </div>
-                                            <span class="text-sm font-medium text-gray-900 dark:text-white">100%</span>
-                                        </div>
-                                        <div class="text-xs text-gray-500 dark:text-gray-400 mt-1">Completed</div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <span class="applicant-status-badge applicant-status-approved">
-                                            Approved
-                                        </span>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="flex items-center">
-                                            <div class="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center text-green-600 dark:text-green-300 mr-2">
-                                                <i class="fas fa-check text-xs"></i>
-                                            </div>
-                                            <span class="text-sm text-gray-900 dark:text-white">92% Score</span>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="flex items-center space-x-2">
-                                            <button class="p-2 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900 rounded-lg view-applicant-btn" data-id="5">
-                                                <i class="fas fa-eye"></i>
-                                            </button>
-                                            <button class="p-2 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg" disabled>
-                                                <i class="fas fa-check"></i>
-                                            </button>
-                                            <button class="p-2 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg" disabled>
-                                                <i class="fas fa-times"></i>
-                                            </button>
-                                        </div>
+                            <tbody id="applicant-records" class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+                                <!-- Applicant data will be loaded here -->
+                                <tr id="no-applicant-data">
+                                    <td colspan="7" class="px-6 py-8 text-center text-gray-500 dark:text-gray-400">
+                                        <i class="fas fa-user-graduate text-4xl mb-4 text-gray-300 dark:text-gray-600"></i>
+                                        <p>No applicant records found</p>
+                                        <p class="text-sm mt-2">Click "Add Applicant" to add new applicants</p>
                                     </td>
                                 </tr>
                             </tbody>
@@ -1321,17 +1027,15 @@
                 
                 <!-- Pagination -->
                 <div class="flex items-center justify-between mt-6">
-                    <div class="text-sm text-gray-500 dark:text-gray-400">
-                        Showing 1 to 5 of 12 applicants
+                    <div class="text-sm text-gray-500 dark:text-gray-400" id="applicant-pagination-info">
+                        Showing 0 to 0 of 0 applicants
                     </div>
-                    <div class="flex items-center space-x-2">
-                        <button class="px-3 py-1.5 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">
+                    <div class="flex items-center space-x-2" id="applicant-pagination-controls">
+                        <button class="px-3 py-1.5 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700" disabled>
                             Previous
                         </button>
                         <button class="px-3 py-1.5 bg-blue-theme text-white rounded-lg">1</button>
-                        <button class="px-3 py-1.5 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">2</button>
-                        <button class="px-3 py-1.5 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">3</button>
-                        <button class="px-3 py-1.5 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">
+                        <button class="px-3 py-1.5 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700" disabled>
                             Next
                         </button>
                     </div>
@@ -1343,111 +1047,31 @@
                 <!-- Training Progress by Department -->
                 <div class="card p-6">
                     <h3 class="font-bold text-xl text-gray-900 dark:text-white mb-6">Training Progress by Department</h3>
-                    <div class="space-y-6">
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Production</span>
-                                <span class="text-sm font-medium text-gray-900 dark:text-white">60%</span>
-                            </div>
-                            <div class="course-progress">
-                                <div class="course-progress-fill" style="width: 60%"></div>
-                            </div>
-                            <div class="text-xs text-gray-500 dark:text-gray-400 mt-1">5 applicants, 3 in training</div>
-                        </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Quality Control</span>
-                                <span class="text-sm font-medium text-gray-900 dark:text-white">80%</span>
-                            </div>
-                            <div class="course-progress">
-                                <div class="course-progress-fill" style="width: 80%"></div>
-                            </div>
-                            <div class="text-xs text-gray-500 dark:text-gray-400 mt-1">3 applicants, 2 completed</div>
-                        </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Maintenance</span>
-                                <span class="text-sm font-medium text-gray-900 dark:text-white">40%</span>
-                            </div>
-                            <div class="course-progress">
-                                <div class="course-progress-fill" style="width: 40%"></div>
-                            </div>
-                            <div class="text-xs text-gray-500 dark:text-gray-400 mt-1">2 applicants, 1 in training</div>
-                        </div>
-                        
-                        <div>
-                            <div class="flex justify-between mb-2">
-                                <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Warehouse</span>
-                                <span class="text-sm font-medium text-gray-900 dark:text-white">10%</span>
-                            </div>
-                            <div class="course-progress">
-                                <div class="course-progress-fill" style="width: 10%"></div>
-                            </div>
-                            <div class="text-xs text-gray-500 dark:text-gray-400 mt-1">1 applicant, pending start</div>
+                    <div id="department-progress-container" class="space-y-6">
+                        <!-- Department progress will be loaded here -->
+                        <div class="text-center py-8 text-gray-500 dark:text-gray-400">
+                            <i class="fas fa-chart-bar text-4xl mb-4 text-gray-300 dark:text-gray-600"></i>
+                            <p>No training progress data available</p>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Upcoming Training Schedule -->
                 <div class="card p-6">
-                    <div class="flex justify-between items-center mb-6">
-                        <h3 class="font-bold text-xl text-gray-900 dark:text-white">Upcoming Training Schedule</h3>
+                    <div class="flex justify-between items-center mb-5">
+                        <h3 class="font-semibold text-gray-900 dark:text-white">Upcoming Training Schedule</h3>
                         <a href="#" class="text-blue-theme text-sm font-medium hover:text-blue-700 dark:hover:text-blue-400">View Calendar</a>
                     </div>
                     
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between p-4 rounded-xl bg-blue-50 dark:bg-blue-900 border border-blue-100 dark:border-blue-800">
-                            <div class="flex items-center">
-                                <div class="w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-800 flex items-center justify-center mr-4">
-                                    <i class="fas fa-industry text-blue-600 dark:text-blue-300"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-900 dark:text-white">Production Safety</h4>
-                                    <p class="text-gray-500 dark:text-gray-400 text-sm">3 new hires</p>
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <div class="font-medium text-gray-900 dark:text-white">Nov 15, 2023</div>
-                                <div class="text-gray-500 dark:text-gray-400 text-sm">9:00 AM</div>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-center justify-between p-4 rounded-xl bg-purple-50 dark:bg-purple-900 border border-purple-100 dark:border-purple-800">
-                            <div class="flex items-center">
-                                <div class="w-12 h-12 rounded-lg bg-purple-100 dark:bg-purple-800 flex items-center justify-center mr-4">
-                                    <i class="fas fa-clipboard-check text-purple-600 dark:text-purple-300"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-900 dark:text-white">Quality Standards</h4>
-                                    <p class="text-gray-500 dark:text-gray-400 text-sm">2 new hires</p>
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <div class="font-medium text-gray-900 dark:text-white">Nov 18, 2023</div>
-                                <div class="text-gray-500 dark:text-gray-400 text-sm">1:00 PM</div>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-center justify-between p-4 rounded-xl bg-green-50 dark:bg-green-900 border border-green-100 dark:border-green-800">
-                            <div class="flex items-center">
-                                <div class="w-12 h-12 rounded-lg bg-green-100 dark:bg-green-800 flex items-center justify-center mr-4">
-                                    <i class="fas fa-tools text-green-600 dark:text-green-300"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-gray-900 dark:text-white">Machine Maintenance</h4>
-                                    <p class="text-gray-500 dark:text-gray-400 text-sm">1 new hire</p>
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <div class="font-medium text-gray-900 dark:text-white">Nov 22, 2023</div>
-                                <div class="text-gray-500 dark:text-gray-400 text-sm">10:00 AM</div>
-                            </div>
+                    <div id="upcoming-training-container" class="space-y-4">
+                        <!-- Upcoming training sessions will be loaded here -->
+                        <div class="text-center py-6 text-gray-500 dark:text-gray-400">
+                            <i class="fas fa-calendar-alt text-3xl mb-3 text-gray-300 dark:text-gray-600"></i>
+                            <p>No upcoming training sessions</p>
                         </div>
                     </div>
                     
-                    <button class="w-full mt-6 py-3 bg-blue-theme hover:bg-blue-700 text-white rounded-xl font-medium transition-colors">
+                    <button id="schedule-training-btn" class="w-full mt-6 py-3 bg-blue-theme hover:bg-blue-700 text-white rounded-xl font-medium transition-colors">
                         Schedule New Training Session
                     </button>
                 </div>
@@ -1465,11 +1089,11 @@
                             </div>
                             <div>
                                 <div class="text-gray-500 dark:text-gray-400 text-sm">Passed Training</div>
-                                <div class="text-2xl font-bold text-gray-900 dark:text-white">8</div>
+                                <div class="text-2xl font-bold text-gray-900 dark:text-white" id="passed-training-count">0</div>
                             </div>
                         </div>
                         <div class="text-xs text-gray-500 dark:text-gray-400">
-                            67% success rate
+                            0% success rate
                         </div>
                     </div>
                     
@@ -1480,7 +1104,7 @@
                             </div>
                             <div>
                                 <div class="text-gray-500 dark:text-gray-400 text-sm">Under Evaluation</div>
-                                <div class="text-2xl font-bold text-gray-900 dark:text-white">3</div>
+                                <div class="text-2xl font-bold text-gray-900 dark:text-white" id="under-evaluation-count">0</div>
                             </div>
                         </div>
                         <div class="text-xs text-gray-500 dark:text-gray-400">
@@ -1495,7 +1119,7 @@
                             </div>
                             <div>
                                 <div class="text-gray-500 dark:text-gray-400 text-sm">Failed/Rejected</div>
-                                <div class="text-2xl font-bold text-gray-900 dark:text-white">1</div>
+                                <div class="text-2xl font-bold text-gray-900 dark:text-white" id="failed-rejected-count">0</div>
                             </div>
                         </div>
                         <div class="text-xs text-gray-500 dark:text-gray-400">
@@ -1506,37 +1130,11 @@
                 
                 <div class="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
                     <h4 class="font-semibold text-gray-900 dark:text-white mb-4">Recent Evaluations</h4>
-                    <div class="space-y-3">
-                        <div class="evaluation-card passed p-4 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
-                            <div class="flex justify-between items-center">
-                                <div>
-                                    <div class="font-medium text-gray-900 dark:text-white">Carlos Mendoza</div>
-                                    <div class="text-sm text-gray-500 dark:text-gray-400">Production Department</div>
-                                </div>
-                                <div class="text-right">
-                                    <div class="font-medium text-green-600 dark:text-green-400">Approved</div>
-                                    <div class="text-sm text-gray-500 dark:text-gray-400">Nov 10, 2023</div>
-                                </div>
-                            </div>
-                            <div class="mt-3 text-sm text-gray-600 dark:text-gray-300">
-                                Excellent performance in machine operation training. Recommended for immediate placement.
-                            </div>
-                        </div>
-                        
-                        <div class="evaluation-card failed p-4 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
-                            <div class="flex justify-between items-center">
-                                <div>
-                                    <div class="font-medium text-gray-900 dark:text-white">Elena Torres</div>
-                                    <div class="text-sm text-gray-500 dark:text-gray-400">Quality Control</div>
-                                </div>
-                                <div class="text-right">
-                                    <div class="font-medium text-red-600 dark:text-red-400">Rejected</div>
-                                    <div class="text-sm text-gray-500 dark:text-gray-400">Nov 8, 2023</div>
-                                </div>
-                            </div>
-                            <div class="mt-3 text-sm text-gray-600 dark:text-gray-300">
-                                Failed to meet quality standards assessment. Recommended for re-training or alternative department.
-                            </div>
+                    <div id="recent-evaluations-container" class="space-y-3">
+                        <!-- Recent evaluations will be loaded here -->
+                        <div class="text-center py-4 text-gray-500 dark:text-gray-400">
+                            <i class="fas fa-clipboard-check text-3xl mb-3 text-gray-300 dark:text-gray-600"></i>
+                            <p>No recent evaluations</p>
                         </div>
                     </div>
                 </div>
@@ -1720,212 +1318,21 @@
         const viewApplicantBtns = document.querySelectorAll('.view-applicant-btn');
         const modalContent = document.getElementById('modal-content');
         
-        // Sample applicant data for modal
-        const applicantData = {
-            1: {
-                name: "Juan Dela Cruz",
-                id: "APP-001",
-                department: "Production",
-                hireDate: "November 1, 2023",
-                status: "In Training",
-                progress: 75,
-                trainingStart: "November 8, 2023",
-                trainingEnd: "December 6, 2023",
-                trainer: "Engr. Rodriguez",
-                skills: [
-                    { name: "Machine Operation", level: 80, rating: "Good" },
-                    { name: "Safety Compliance", level: 90, rating: "Excellent" },
-                    { name: "Quality Awareness", level: 70, rating: "Good" },
-                    { name: "Teamwork", level: 85, rating: "Excellent" }
-                ],
-                evaluations: [
-                    { date: "Nov 15, 2023", evaluator: "Supervisor Santos", score: 78, comment: "Good progress, needs more practice on machine #3" },
-                    { date: "Nov 22, 2023", evaluator: "Trainer Rodriguez", score: 85, comment: "Showing improvement, safety protocols well understood" }
-                ],
-                notes: "Quick learner, shows good potential for production line work."
-            },
-            2: {
-                name: "Maria Santos",
-                id: "APP-002",
-                department: "Quality Control",
-                hireDate: "November 3, 2023",
-                status: "Under Evaluation",
-                progress: 100,
-                trainingStart: "November 6, 2023",
-                trainingEnd: "November 27, 2023",
-                trainer: "QA Manager Lim",
-                skills: [
-                    { name: "Quality Inspection", level: 90, rating: "Excellent" },
-                    { name: "Documentation", level: 85, rating: "Excellent" },
-                    { name: "Attention to Detail", level: 95, rating: "Excellent" },
-                    { name: "Problem Solving", level: 80, rating: "Good" }
-                ],
-                evaluations: [
-                    { date: "Nov 20, 2023", evaluator: "QA Manager Lim", score: 92, comment: "Exceptional attention to detail, quick to identify defects" },
-                    { date: "Nov 24, 2023", evaluator: "Supervisor Tan", score: 88, comment: "Good understanding of quality standards" }
-                ],
-                notes: "Highly recommended for quality control position. Has previous experience in textile quality."
-            },
-            3: {
-                name: "Roberto Garcia",
-                id: "APP-003",
-                department: "Maintenance",
-                hireDate: "October 28, 2023",
-                status: "In Training",
-                progress: 50,
-                trainingStart: "November 13, 2023",
-                trainingEnd: "December 11, 2023",
-                trainer: "Chief Engineer Lee",
-                skills: [
-                    { name: "Mechanical Skills", level: 75, rating: "Good" },
-                    { name: "Troubleshooting", level: 70, rating: "Average" },
-                    { name: "Preventive Maintenance", level: 65, rating: "Average" },
-                    { name: "Safety Procedures", level: 85, rating: "Excellent" }
-                ],
-                evaluations: [
-                    { date: "Nov 20, 2023", evaluator: "Engineer Lee", score: 72, comment: "Basic skills good, needs more practice on complex repairs" }
-                ],
-                notes: "Shows good mechanical aptitude but needs more hands-on experience."
-            }
-        };
-        
         // Function to open modal with applicant details
         function openApplicantModal(applicantId) {
-            const applicant = applicantData[applicantId];
-            if (!applicant) return;
+            // Implement your backend logic here to fetch applicant details
+            console.log('Open applicant modal for ID:', applicantId);
             
-            // Determine rating class
-            function getRatingClass(level) {
-                if (level >= 90) return 'excellent';
-                if (level >= 80) return 'good';
-                if (level >= 70) return 'average';
-                return 'poor';
-            }
-            
-            // Generate modal content
             modalContent.innerHTML = `
-                <div class="space-y-6">
-                    <!-- Applicant Header -->
-                    <div class="flex items-start justify-between">
-                        <div class="flex items-center space-x-4">
-                            <div class="w-16 h-16 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-blue-600 dark:text-blue-300 text-2xl font-bold">
-                                ${applicant.name.split(' ').map(n => n[0]).join('')}
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-xl text-gray-900 dark:text-white">${applicant.name}</h4>
-                                <p class="text-gray-500 dark:text-gray-400">ID: ${applicant.id}</p>
-                                <div class="flex items-center space-x-2 mt-2">
-                                    <span class="department-badge department-${applicant.department.toLowerCase().replace(' ', '-')}">
-                                        ${applicant.department}
-                                    </span>
-                                    <span class="applicant-status-badge applicant-status-${applicant.status.toLowerCase().replace(' ', '-')}">
-                                        ${applicant.status}
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-sm text-gray-500 dark:text-gray-400">Hire Date</div>
-                            <div class="font-medium text-gray-900 dark:text-white">${applicant.hireDate}</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Training Progress -->
-                    <div class="bg-gray-50 dark:bg-gray-700 rounded-xl p-5">
-                        <h5 class="font-bold text-lg text-gray-900 dark:text-white mb-4">Training Progress</h5>
-                        <div class="mb-4">
-                            <div class="flex justify-between mb-2">
-                                <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Overall Progress</span>
-                                <span class="text-sm font-medium text-gray-900 dark:text-white">${applicant.progress}%</span>
-                            </div>
-                            <div class="course-progress">
-                                <div class="course-progress-fill" style="width: ${applicant.progress}%"></div>
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div>
-                                <div class="text-sm text-gray-500 dark:text-gray-400">Training Period</div>
-                                <div class="font-medium text-gray-900 dark:text-white">${applicant.trainingStart} - ${applicant.trainingEnd}</div>
-                            </div>
-                            <div>
-                                <div class="text-sm text-gray-500 dark:text-gray-400">Assigned Trainer</div>
-                                <div class="font-medium text-gray-900 dark:text-white">${applicant.trainer}</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Skills Assessment -->
-                    <div>
-                        <h5 class="font-bold text-lg text-gray-900 dark:text-white mb-4">Skills Assessment</h5>
-                        <div class="space-y-4">
-                            ${applicant.skills.map(skill => `
-                                <div>
-                                    <div class="flex justify-between mb-1">
-                                        <span class="text-sm font-medium text-gray-700 dark:text-gray-300">${skill.name}</span>
-                                        <span class="text-sm font-medium text-gray-900 dark:text-white">${skill.level}% (${skill.rating})</span>
-                                    </div>
-                                    <div class="skill-meter">
-                                        <div class="skill-meter-fill ${getRatingClass(skill.level)}" style="width: ${skill.level}%"></div>
-                                    </div>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-                    
-                    <!-- Evaluations -->
-                    <div>
-                        <h5 class="font-bold text-lg text-gray-900 dark:text-white mb-4">Training Evaluations</h5>
-                        <div class="space-y-3">
-                            ${applicant.evaluations.map(eval => `
-                                <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4">
-                                    <div class="flex justify-between items-start mb-2">
-                                        <div>
-                                            <div class="font-medium text-gray-900 dark:text-white">${eval.evaluator}</div>
-                                            <div class="text-sm text-gray-500 dark:text-gray-400">${eval.date}</div>
-                                        </div>
-                                        <div class="text-lg font-bold text-blue-600 dark:text-blue-400">${eval.score}%</div>
-                                    </div>
-                                    <p class="text-sm text-gray-600 dark:text-gray-300">${eval.comment}</p>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-                    
-                    <!-- Notes -->
-                    <div>
-                        <h5 class="font-bold text-lg text-gray-900 dark:text-white mb-2">HR Notes</h5>
-                        <div class="bg-yellow-50 dark:bg-yellow-900 border border-yellow-100 dark:border-yellow-800 rounded-lg p-4">
-                            <p class="text-sm text-gray-700 dark:text-gray-300">${applicant.notes}</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Action Buttons -->
-                    <div class="flex justify-end space-x-3 pt-6 border-t border-gray-200 dark:border-gray-700">
-                        <button class="px-4 py-2.5 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700">
-                            <i class="fas fa-download mr-2"></i> Export Report
-                        </button>
-                        <button class="px-4 py-2.5 bg-green-600 hover:bg-green-700 text-white rounded-xl approve-btn-modal" data-id="${applicantId}">
-                            <i class="fas fa-check mr-2"></i> Approve
-                        </button>
-                        <button class="px-4 py-2.5 bg-red-600 hover:bg-red-700 text-white rounded-xl reject-btn-modal" data-id="${applicantId}">
-                            <i class="fas fa-times mr-2"></i> Reject
-                        </button>
-                    </div>
+                <div class="text-center py-8 text-gray-500 dark:text-gray-400">
+                    <i class="fas fa-user-circle text-5xl mb-4 text-gray-300 dark:text-gray-600"></i>
+                    <p>Loading applicant details...</p>
                 </div>
             `;
             
             // Open modal
             applicantModal.classList.add('active');
             document.body.style.overflow = 'hidden';
-            
-            // Add event listeners to modal buttons
-            document.querySelector('.approve-btn-modal')?.addEventListener('click', function() {
-                approveApplicant(this.getAttribute('data-id'));
-            });
-            
-            document.querySelector('.reject-btn-modal')?.addEventListener('click', function() {
-                rejectApplicant(this.getAttribute('data-id'));
-            });
         }
         
         // Function to close modal
@@ -1942,93 +1349,23 @@
             }
         });
         
-        // Event listeners for view buttons
-        viewApplicantBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                const applicantId = this.getAttribute('data-id');
-                openApplicantModal(applicantId);
-            });
-        });
-        
         // Function to approve applicant
         function approveApplicant(applicantId) {
-            // Find the row in the table
-            const row = document.querySelector(`.view-applicant-btn[data-id="${applicantId}"]`)?.closest('tr');
-            if (!row) return;
-            
-            // Update status badge
-            const statusCell = row.querySelector('.applicant-status-badge');
-            statusCell.textContent = 'Approved';
-            statusCell.className = 'applicant-status-badge applicant-status-approved';
-            
-            // Update evaluation cell
-            const evalCell = row.querySelector('.flex.items-center:has(.fa-clock, .fa-chart-bar, .fa-minus, .fa-check)');
-            if (evalCell) {
-                evalCell.innerHTML = `
-                    <div class="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center text-green-600 dark:text-green-300 mr-2">
-                        <i class="fas fa-check text-xs"></i>
-                    </div>
-                    <span class="text-sm text-gray-900 dark:text-white">Approved</span>
-                `;
-            }
-            
-            // Show success message
-            showToast('Applicant approved successfully!', 'success');
-            closeModal();
+            // Implement your backend logic here
+            console.log('Approve applicant:', applicantId);
         }
         
         // Function to reject applicant
         function rejectApplicant(applicantId) {
-            // Find the row in the table
-            const row = document.querySelector(`.view-applicant-btn[data-id="${applicantId}"]`)?.closest('tr');
-            if (!row) return;
-            
-            // Update status badge
-            const statusCell = row.querySelector('.applicant-status-badge');
-            statusCell.textContent = 'Rejected';
-            statusCell.className = 'applicant-status-badge applicant-status-rejected';
-            
-            // Update evaluation cell
-            const evalCell = row.querySelector('.flex.items-center:has(.fa-clock, .fa-chart-bar, .fa-minus, .fa-check)');
-            if (evalCell) {
-                evalCell.innerHTML = `
-                    <div class="w-8 h-8 rounded-full bg-red-100 dark:bg-red-900 flex items-center justify-center text-red-600 dark:text-red-300 mr-2">
-                        <i class="fas fa-times text-xs"></i>
-                    </div>
-                    <span class="text-sm text-gray-900 dark:text-white">Rejected</span>
-                `;
-            }
-            
-            // Show success message
-            showToast('Applicant rejected successfully!', 'error');
-            closeModal();
+            // Implement your backend logic here
+            console.log('Reject applicant:', applicantId);
         }
-        
-        // Event listeners for approve/reject buttons in table
-        document.querySelectorAll('.approve-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const applicantId = this.getAttribute('data-id');
-                if (confirm('Are you sure you want to approve this applicant?')) {
-                    approveApplicant(applicantId);
-                }
-            });
-        });
-        
-        document.querySelectorAll('.reject-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const applicantId = this.getAttribute('data-id');
-                if (confirm('Are you sure you want to reject this applicant?')) {
-                    rejectApplicant(applicantId);
-                }
-            });
-        });
         
         // Schedule training button functionality
         document.querySelectorAll('.schedule-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 const applicantId = this.getAttribute('data-id');
-                showToast('Training scheduling modal would open here', 'info');
-                // In a real app, this would open a scheduling modal
+                console.log('Schedule training for applicant:', applicantId);
             });
         });
         
@@ -2036,11 +1373,7 @@
         function showToast(message, type) {
             // Create toast element
             const toast = document.createElement('div');
-            toast.className = `fixed top-4 right-4 px-6 py-3 rounded-lg shadow-lg z-50 transform transition-transform duration-300 ${
-                type === 'success' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300' : 
-                type === 'error' ? 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300' :
-                'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300'
-            }`;
+            toast.className = `fixed top-4 right-4 px-6 py-3 rounded-lg shadow-lg z-50 transform transition-transform duration-300 ${type === 'success' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300' : type === 'error' ? 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300' : 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300'}`;
             toast.textContent = message;
             
             // Add to DOM

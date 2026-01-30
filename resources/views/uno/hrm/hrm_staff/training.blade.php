@@ -601,7 +601,7 @@
                         
                         <button class="relative p-2.5 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300">
                             <i class="fas fa-bell"></i>
-                            <span class="notification-badge">5</span>
+                            <span class="notification-badge">0</span>
                         </button>
                         
                         <button class="md:hidden p-2.5 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-600 text-gray-600 dark:text-gray-300" id="mobile-menu-toggle">
@@ -626,7 +626,7 @@
                     </div>
                     <div>
                         <div class="text-gray-500 dark:text-gray-400 text-sm">Active Trainings</div>
-                        <div class="text-2xl font-bold text-gray-900 dark:text-white">18</div>
+                        <div class="text-2xl font-bold text-gray-900 dark:text-white" id="active-trainings-count">0</div>
                     </div>
                 </div>
                 
@@ -636,7 +636,7 @@
                     </div>
                     <div>
                         <div class="text-gray-500 dark:text-gray-400 text-sm">Employees Trained</div>
-                        <div class="text-2xl font-bold text-gray-900 dark:text-white">142</div>
+                        <div class="text-2xl font-bold text-gray-900 dark:text-white" id="employees-trained-count">0</div>
                     </div>
                 </div>
                 
@@ -646,7 +646,7 @@
                     </div>
                     <div>
                         <div class="text-gray-500 dark:text-gray-400 text-sm">Certifications</div>
-                        <div class="text-2xl font-bold text-gray-900 dark:text-white">245</div>
+                        <div class="text-2xl font-bold text-gray-900 dark:text-white" id="certifications-count">0</div>
                     </div>
                 </div>
                 
@@ -656,7 +656,7 @@
                     </div>
                     <div>
                         <div class="text-gray-500 dark:text-gray-400 text-sm">Completion Rate</div>
-                        <div class="text-2xl font-bold text-gray-900 dark:text-white">88%</div>
+                        <div class="text-2xl font-bold text-gray-900 dark:text-white" id="completion-rate">0%</div>
                     </div>
                 </div>
             </div>
@@ -671,11 +671,9 @@
                                 <div class="featured-banner-content mb-6 md:mb-0">
                                     <h2 class="text-2xl font-bold mb-3 text-white">Training & Development Portal</h2>
                                     <p class="text-blue-100 mb-6 max-w-lg">Manage employee training programs, track certifications, and monitor skill development progress.</p>
-                                   <a href="{{ route('hrm.staff.trainee') }}"
-   class="inline-flex px-6 py-3 bg-purple-theme hover:bg-purple-600 text-white font-semibold rounded-xl transition-colors shadow-md items-center featured-banner-button">
-    Schedule New Training <i class="fas fa-calendar-plus ml-2"></i>
-</a>
-
+                                    <a href="{{ route('hrm.staff.trainee') }}" class="inline-flex px-6 py-3 bg-purple-theme hover:bg-purple-600 text-white font-semibold rounded-xl transition-colors shadow-md items-center featured-banner-button">
+                                        Schedule New Training <i class="fas fa-calendar-plus ml-2"></i>
+                                    </a>
                                 </div>
                                 <div class="featured-banner-image animate-float">
                                     <div class="w-48 h-32 bg-gradient-to-r from-purple-400 to-purple-300 dark:from-purple-500 dark:to-purple-400 rounded-lg shadow-xl flex items-center justify-center">
@@ -709,16 +707,16 @@
                                 <div class="mb-3">
                                     <div class="flex justify-between text-sm mb-1">
                                         <span class="text-gray-600 dark:text-gray-300">Completion Rate</span>
-                                        <span class="text-blue-theme font-medium">85%</span>
+                                        <span class="text-blue-theme font-medium">0%</span>
                                     </div>
                                     <div class="course-progress">
-                                        <div class="course-progress-fill" style="width: 85%"></div>
+                                        <div class="course-progress-fill" style="width: 0%"></div>
                                     </div>
                                 </div>
                                 
                                 <div class="flex justify-between text-xs text-gray-500 dark:text-gray-400">
-                                    <span>18 Active</span>
-                                    <span>5 Upcoming</span>
+                                    <span>0 Active</span>
+                                    <span>0 Upcoming</span>
                                 </div>
                             </div>
                             
@@ -735,16 +733,16 @@
                                 <div class="mb-3">
                                     <div class="flex justify-between text-sm mb-1">
                                         <span class="text-gray-600 dark:text-gray-300">Valid Certifications</span>
-                                        <span class="text-blue-theme font-medium">92%</span>
+                                        <span class="text-blue-theme font-medium">0%</span>
                                     </div>
                                     <div class="course-progress">
-                                        <div class="course-progress-fill" style="width: 92%"></div>
+                                        <div class="course-progress-fill" style="width: 0%"></div>
                                     </div>
                                 </div>
                                 
                                 <div class="flex justify-between text-xs text-gray-500 dark:text-gray-400">
-                                    <span>245 Active</span>
-                                    <span>12 Expiring</span>
+                                    <span>0 Active</span>
+                                    <span>0 Expiring</span>
                                 </div>
                             </div>
                         </div>
@@ -772,11 +770,11 @@
                             </p>
                             
                             <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5 mt-5">
-                                <div class="bg-indigo-theme h-2.5 rounded-full" style="width: 92%"></div>
+                                <div class="bg-indigo-theme h-2.5 rounded-full" style="width: 0%"></div>
                             </div>
                             <div class="w-full flex justify-between text-sm text-gray-500 dark:text-gray-400 mt-2">
                                 <span>Training Effectiveness</span>
-                                <span class="text-gray-900 dark:text-white font-medium">92%</span>
+                                <span class="text-gray-900 dark:text-white font-medium">0%</span>
                             </div>
                             
                             <a href="#" class="w-full mt-5">
@@ -794,44 +792,11 @@
                             <a href="#" class="text-blue-theme text-sm font-medium hover:text-blue-700 dark:hover:text-blue-400">View Calendar</a>
                         </div>
                         
-                        <div class="space-y-4">
-                            <div class="flex items-center justify-between p-3 rounded-xl bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600">
-                                <div class="flex items-center">
-                                    <div class="w-10 h-10 rounded-lg bg-purple-100 dark:bg-purple-900 flex items-center justify-center mr-3">
-                                        <i class="fas fa-shield-alt text-purple-600 dark:text-purple-300"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-medium text-gray-900 dark:text-white">SAFETY TRAINING</h4>
-                                        <p class="text-gray-500 dark:text-gray-400 text-xs">All Production Staff</p>
-                                    </div>
-                                </div>
-                                <span class="text-gray-500 dark:text-gray-400 text-sm font-medium">Nov 22</span>
-                            </div>
-                            
-                            <div class="flex items-center justify-between p-3 rounded-xl bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600">
-                                <div class="flex items-center">
-                                    <div class="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900 flex items-center justify-center mr-3">
-                                        <i class="fas fa-cogs text-blue-600 dark:text-blue-300"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-medium text-gray-900 dark:text-white">MACHINE OPERATION</h4>
-                                        <p class="text-gray-500 dark:text-gray-400 text-xs">New Operators</p>
-                                    </div>
-                                </div>
-                                <span class="text-gray-500 dark:text-gray-400 text-sm font-medium">Nov 25</span>
-                            </div>
-                            
-                            <div class="flex items-center justify-between p-3 rounded-xl bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600">
-                                <div class="flex items-center">
-                                    <div class="w-10 h-10 rounded-lg bg-green-100 dark:bg-green-900 flex items-center justify-center mr-3">
-                                        <i class="fas fa-chart-line text-green-600 dark:text-green-300"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-medium text-gray-900 dark:text-white">LEADERSHIP SKILLS</h4>
-                                        <p class="text-gray-500 dark:text-gray-400 text-xs">Supervisors</p>
-                                    </div>
-                                </div>
-                                <span class="text-gray-500 dark:text-gray-400 text-sm font-medium">Nov 28</span>
+                        <div id="upcoming-trainings-container" class="space-y-4">
+                            <!-- Upcoming trainings will be loaded here -->
+                            <div class="text-center py-6 text-gray-500 dark:text-gray-400">
+                                <i class="fas fa-calendar-alt text-3xl mb-3 text-gray-300 dark:text-gray-600"></i>
+                                <p>No upcoming training sessions</p>
                             </div>
                         </div>
                     </div>
@@ -861,125 +826,13 @@
                                     <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">Certificate</th>
                                 </tr>
                             </thead>
-                            <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-                                <tr>
-                                    <td class="px-4 py-4 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-blue-600 dark:text-blue-300 font-medium">
-                                                JD
-                                            </div>
-                                            <div class="ml-4">
-                                                <div class="text-sm font-medium text-gray-900 dark:text-white">John Dela Cruz</div>
-                                                <div class="text-sm text-gray-500 dark:text-gray-400">Production Dept.</div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="px-4 py-4 whitespace-nowrap">
-                                        <div class="text-sm font-medium text-gray-900 dark:text-white">Advanced Machine Operation</div>
-                                        <div class="text-sm text-gray-500 dark:text-gray-400">Instructor: Engr. Santos</div>
-                                    </td>
-                                    <td class="px-4 py-4 whitespace-nowrap">
-                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300">
-                                            Technical
-                                        </span>
-                                    </td>
-                                    <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
-                                        5 days<br>
-                                        <span class="text-gray-500 dark:text-gray-400 text-xs">40 hours</span>
-                                    </td>
-                                    <td class="px-4 py-4 whitespace-nowrap">
-                                        <span class="training-status-badge training-status-completed">
-                                            Completed
-                                        </span>
-                                    </td>
-                                    <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">Nov 15, 2023</td>
-                                    <td class="px-4 py-4 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="certification-badge certification-valid">
-                                                <i class="fas fa-check text-xs"></i>
-                                            </div>
-                                            <span class="text-sm text-gray-900 dark:text-white">Valid</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-4 py-4 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center text-purple-600 dark:text-purple-300 font-medium">
-                                                MS
-                                            </div>
-                                            <div class="ml-4">
-                                                <div class="text-sm font-medium text-gray-900 dark:text-white">Maria Santos</div>
-                                                <div class="text-sm text-gray-500 dark:text-gray-400">Quality Control</div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="px-4 py-4 whitespace-nowrap">
-                                        <div class="text-sm font-medium text-gray-900 dark:text-white">Quality Assurance Standards</div>
-                                        <div class="text-sm text-gray-500 dark:text-gray-400">Instructor: QA Manager</div>
-                                    </td>
-                                    <td class="px-4 py-4 whitespace-nowrap">
-                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300">
-                                            Quality
-                                        </span>
-                                    </td>
-                                    <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
-                                        3 days<br>
-                                        <span class="text-gray-500 dark:text-gray-400 text-xs">24 hours</span>
-                                    </td>
-                                    <td class="px-4 py-4 whitespace-nowrap">
-                                        <span class="training-status-badge training-status-ongoing">
-                                            Ongoing
-                                        </span>
-                                    </td>
-                                    <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">In Progress</td>
-                                    <td class="px-4 py-4 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="certification-badge certification-expired">
-                                                <i class="fas fa-clock text-xs"></i>
-                                            </div>
-                                            <span class="text-sm text-gray-900 dark:text-white">Pending</span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-4 py-4 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="flex-shrink-0 h-10 w-10 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center text-green-600 dark:text-green-300 font-medium">
-                                                RG
-                                            </div>
-                                            <div class="ml-4">
-                                                <div class="text-sm font-medium text-gray-900 dark:text-white">Robert Garcia</div>
-                                                <div class="text-sm text-gray-500 dark:text-gray-400">Maintenance</div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="px-4 py-4 whitespace-nowrap">
-                                        <div class="text-sm font-medium text-gray-900 dark:text-white">Workplace Safety & Compliance</div>
-                                        <div class="text-sm text-gray-500 dark:text-gray-400">Instructor: Safety Officer</div>
-                                    </td>
-                                    <td class="px-4 py-4 whitespace-nowrap">
-                                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">
-                                            Safety
-                                        </span>
-                                    </td>
-                                    <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-900 dark:text-white">
-                                        2 days<br>
-                                        <span class="text-gray-500 dark:text-gray-400 text-xs">16 hours</span>
-                                    </td>
-                                    <td class="px-4 py-4 whitespace-nowrap">
-                                        <span class="training-status-badge training-status-upcoming">
-                                            Upcoming
-                                        </span>
-                                    </td>
-                                    <td class="px-4 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">Nov 22, 2023</td>
-                                    <td class="px-4 py-4 whitespace-nowrap">
-                                        <div class="flex items-center">
-                                            <div class="certification-badge certification-expired">
-                                                <i class="fas fa-clock text-xs"></i>
-                                            </div>
-                                            <span class="text-sm text-gray-900 dark:text-white">Scheduled</span>
-                                        </div>
+                            <tbody id="training-records" class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+                                <!-- Training records will be loaded here -->
+                                <tr id="no-training-data">
+                                    <td colspan="7" class="px-4 py-8 text-center text-gray-500 dark:text-gray-400">
+                                        <i class="fas fa-graduation-cap text-4xl mb-4 text-gray-300 dark:text-gray-600"></i>
+                                        <p>No training records found</p>
+                                        <p class="text-sm mt-2">Create training programs to view records</p>
                                     </td>
                                 </tr>
                             </tbody>
@@ -997,77 +850,11 @@
                     </a>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 instructors-grid">
-                    <div class="card p-5">
-                        <div class="flex items-center mb-4">
-                            <div class="rounded-full w-12 h-12 bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-blue-600 dark:text-blue-300 text-xl mr-3">
-                                <i class="fas fa-cogs"></i>
-                            </div>
-                            <div>
-                                <div class="text-gray-500 dark:text-gray-400 text-sm">Technical Training</div>
-                                <div class="text-xl font-bold text-gray-900 dark:text-white">8 programs</div>
-                            </div>
-                        </div>
-                        <div class="text-xs text-gray-500 dark:text-gray-400">
-                            142 employees completed
-                        </div>
-                        <div class="mt-2 course-progress">
-                            <div class="course-progress-fill" style="width: 75%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="card p-5">
-                        <div class="flex items-center mb-4">
-                            <div class="rounded-full w-12 h-12 bg-purple-100 dark:bg-purple-900 flex items-center justify-center text-purple-600 dark:text-purple-300 text-xl mr-3">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <div>
-                                <div class="text-gray-500 dark:text-gray-400 text-sm">Safety Training</div>
-                                <div class="text-xl font-bold text-gray-900 dark:text-white">5 programs</div>
-                            </div>
-                        </div>
-                        <div class="text-xs text-gray-500 dark:text-gray-400">
-                            All 245 employees trained
-                        </div>
-                        <div class="mt-2 course-progress">
-                            <div class="course-progress-fill" style="width: 100%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="card p-5">
-                        <div class="flex items-center mb-4">
-                            <div class="rounded-full w-12 h-12 bg-green-100 dark:bg-green-900 flex items-center justify-center text-green-600 dark:text-green-300 text-xl mr-3">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <div>
-                                <div class="text-gray-500 dark:text-gray-400 text-sm">Soft Skills</div>
-                                <div class="text-xl font-bold text-gray-900 dark:text-white">6 programs</div>
-                            </div>
-                        </div>
-                        <div class="text-xs text-gray-500 dark:text-gray-400">
-                            89 employees completed
-                        </div>
-                        <div class="mt-2 course-progress">
-                            <div class="course-progress-fill" style="width: 65%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="card p-5">
-                        <div class="flex items-center mb-4">
-                            <div class="rounded-full w-12 h-12 bg-yellow-100 dark:bg-yellow-900 flex items-center justify-center text-yellow-600 dark:text-yellow-300 text-xl mr-3">
-                                <i class="fas fa-industry"></i>
-                            </div>
-                            <div>
-                                <div class="text-gray-500 dark:text-gray-400 text-sm">Compliance</div>
-                                <div class="text-xl font-bold text-gray-900 dark:text-white">4 programs</div>
-                            </div>
-                        </div>
-                        <div class="text-xs text-gray-500 dark:text-gray-400">
-                            203 employees completed
-                        </div>
-                        <div class="mt-2 course-progress">
-                            <div class="course-progress-fill" style="width: 83%"></div>
-                        </div>
+                <div id="training-programs-summary" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 instructors-grid">
+                    <!-- Training programs summary will be loaded here -->
+                    <div class="col-span-4 text-center py-8 text-gray-500 dark:text-gray-400">
+                        <i class="fas fa-chart-pie text-4xl mb-4 text-gray-300 dark:text-gray-600"></i>
+                        <p>No training programs data available</p>
                     </div>
                 </div>
             </div>
@@ -1082,80 +869,21 @@
                         </a>
                     </div>
                     
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <div class="bg-gray-50 dark:bg-gray-700 rounded-xl p-5">
-                            <div class="flex items-center mb-4">
-                                <div class="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center text-green-600 dark:text-green-300 mr-3">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div>
-                                    <div class="text-gray-500 dark:text-gray-400 text-sm">Valid Certifications</div>
-                                    <div class="text-2xl font-bold text-gray-900 dark:text-white">225</div>
-                                </div>
-                            </div>
-                            <div class="text-xs text-gray-500 dark:text-gray-400">
-                                92% of all certifications
-                            </div>
-                        </div>
-                        
-                        <div class="bg-gray-50 dark:bg-gray-700 rounded-xl p-5">
-                            <div class="flex items-center mb-4">
-                                <div class="w-10 h-10 rounded-full bg-yellow-100 dark:bg-yellow-900 flex items-center justify-center text-yellow-600 dark:text-yellow-300 mr-3">
-                                    <i class="fas fa-exclamation-triangle"></i>
-                                </div>
-                                <div>
-                                    <div class="text-gray-500 dark:text-gray-400 text-sm">Expiring Soon</div>
-                                    <div class="text-2xl font-bold text-gray-900 dark:text-white">12</div>
-                                </div>
-                            </div>
-                            <div class="text-xs text-gray-500 dark:text-gray-400">
-                                Within next 30 days
-                            </div>
-                        </div>
-                        
-                        <div class="bg-gray-50 dark:bg-gray-700 rounded-xl p-5">
-                            <div class="flex items-center mb-4">
-                                <div class="w-10 h-10 rounded-full bg-red-100 dark:bg-red-900 flex items-center justify-center text-red-600 dark:text-red-300 mr-3">
-                                    <i class="fas fa-times-circle"></i>
-                                </div>
-                                <div>
-                                    <div class="text-gray-500 dark:text-gray-400 text-sm">Expired</div>
-                                    <div class="text-2xl font-bold text-gray-900 dark:text-white">8</div>
-                                </div>
-                            </div>
-                            <div class="text-xs text-gray-500 dark:text-gray-400">
-                                Require renewal
-                            </div>
+                    <div id="certification-stats" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Certification stats will be loaded here -->
+                        <div class="col-span-3 text-center py-6 text-gray-500 dark:text-gray-400">
+                            <i class="fas fa-certificate text-4xl mb-4 text-gray-300 dark:text-gray-600"></i>
+                            <p>No certification data available</p>
                         </div>
                     </div>
                     
                     <div class="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
                         <h4 class="font-semibold text-gray-900 dark:text-white mb-4">Certifications Expiring Soon</h4>
-                        <div class="space-y-3">
-                            <div class="flex items-center justify-between p-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
-                                <div class="flex items-center">
-                                    <div class="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-blue-600 dark:text-blue-300 mr-3">
-                                        <i class="fas fa-user-hard-hat"></i>
-                                    </div>
-                                    <div>
-                                        <div class="text-sm font-medium text-gray-900 dark:text-white">Safety Officer Certification</div>
-                                        <div class="text-xs text-gray-500 dark:text-gray-400">John Dela Cruz</div>
-                                    </div>
-                                </div>
-                                <div class="text-sm text-red-600 dark:text-red-400 font-medium">Expires: Dec 15, 2023</div>
-                            </div>
-                            
-                            <div class="flex items-center justify-between p-3 rounded-lg bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
-                                <div class="flex items-center">
-                                    <div class="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center text-purple-600 dark:text-purple-300 mr-3">
-                                        <i class="fas fa-tools"></i>
-                                    </div>
-                                    <div>
-                                        <div class="text-sm font-medium text-gray-900 dark:text-white">Machine Operator License</div>
-                                        <div class="text-xs text-gray-500 dark:text-gray-400">Maria Santos</div>
-                                    </div>
-                                </div>
-                                <div class="text-sm text-yellow-600 dark:text-yellow-400 font-medium">Expires: Dec 20, 2023</div>
+                        <div id="expiring-certifications" class="space-y-3">
+                            <!-- Expiring certifications will be loaded here -->
+                            <div class="text-center py-4 text-gray-500 dark:text-gray-400">
+                                <i class="fas fa-clock text-3xl mb-3 text-gray-300 dark:text-gray-600"></i>
+                                <p>No certifications expiring soon</p>
                             </div>
                         </div>
                     </div>
@@ -1325,53 +1053,7 @@
                     bar.style.width = width;
                 }, 300);
             });
-            
-            // Training record status updates
-            document.querySelectorAll('button').forEach(button => {
-                if (button.textContent.includes('Mark Complete')) {
-                    button.addEventListener('click', function() {
-                        const row = this.closest('tr');
-                        const statusCell = row.querySelector('.training-status-badge');
-                        const certCell = row.querySelector('.certification-badge');
-                        
-                        statusCell.textContent = 'Completed';
-                        statusCell.className = 'training-status-badge training-status-completed';
-                        
-                        if (certCell) {
-                            certCell.className = 'certification-badge certification-valid';
-                            certCell.innerHTML = '<i class="fas fa-check text-xs"></i>';
-                            
-                            // Update next sibling text
-                            const certText = certCell.nextElementSibling;
-                            if (certText) {
-                                certText.textContent = 'Valid';
-                            }
-                        }
-                        
-                        // Show success message
-                        showToast('Training marked as completed!', 'success');
-                    });
-                }
-            });
         });
-        
-        function showToast(message, type) {
-            // Create toast element
-            const toast = document.createElement('div');
-            toast.className = `fixed top-4 right-4 px-6 py-3 rounded-lg shadow-lg z-50 transform transition-transform duration-300 ${
-                type === 'success' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300' : 
-                'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300'
-            }`;
-            toast.textContent = message;
-            
-            // Add to DOM
-            document.body.appendChild(toast);
-            
-            // Remove after 3 seconds
-            setTimeout(() => {
-                toast.remove();
-            }, 3000);
-        }
     </script>
 </body>
 </html>
